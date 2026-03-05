@@ -1,26 +1,23 @@
-/**
- * TCD Campus Map — Interactive Map Logic (map.js)
- * ================================================
- * Initialises the Leaflet map, places markers, handles sidebar panels,
- * category filtering, search and saved buildings.
- *
- * DEPENDENCIES (loaded before this file in index.html):
- *   - Leaflet CSS + JS (CDN)
- *   - data/buildings.js    (BUILDINGS, CATEGORIES)
- *   - js/shared.js         (getSaved, toggleSaved, isSaved, etc.)
+/**TCD Campus Map — Interactive Map Logic 
+ FOR ADMINS:
+ Initialises the Leaflet map, places markers, handles sidebar panels,
+ category filtering, search and saved buildings.
+ 
+ DEPENDENCIES (loaded before this file in index.html):
+ Leaflet CSS + JS (CDN)
+data/buildings.js (BUILDINGS, CATEGORIES)
+ js/shared.js (getSaved, toggleSaved, isSaved, etc.)
  */
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  ALL CODE runs inside DOMContentLoaded so the #map element exists first.
- * ─────────────────────────────────────────────────────────────────────────── */
+/**  ALL CODE runs inside DOMContentLoaded so the #map element exists first */
 document.addEventListener("DOMContentLoaded", function () {
 
   "use strict";
 
-  /* ── MAP INITIALISATION ─────────────────────────────────────────────────── */
+  /* MAP INITIALISATION */
 
   var MAP_CENTER  = [53.3440, -6.2549];
-  var MAP_ZOOM    = 16;
+  var MAP_ZOOM = 16;
   var MAP_MIN_ZOOM = 14;
   var MAP_MAX_ZOOM = 19;
 
@@ -39,15 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   L.control.zoom({ position: "topright" }).addTo(map);
 
-  /* ── STATE ──────────────────────────────────────────────────────────────── */
-
+  /*STATE */
   var activeCategories = new Set();
   var showingSaved = false;
   var currentCategoryKey = null;
   var markerMap = {};
 
-  /* ── MARKER ICONS ───────────────────────────────────────────────────────── */
-
+  /* MARKER ICONS*/
   function createMarkerIcon(colour, categoryKey) {
     var html = '<div class="custom-marker" role="img" aria-label="Map marker">' +
       '<div class="marker-pin" style="background-color:' + colour + ';">' +
@@ -64,8 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ── POPUP HTML ─────────────────────────────────────────────────────────── */
-
+  /* POPUP HTML */
   function buildPopupHTML(building) {
     var saved = isSaved(building.id);
     var imgTag = '<img src="' + building.image + '" alt="Photo of ' + building.name +
@@ -86,8 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
       '</div></div></div>';
   }
 
-  /* ── PLACE MARKERS ──────────────────────────────────────────────────────── */
-
+  /*PLACE MARKERS */
   function placeMarkers() {
     BUILDINGS.forEach(function (building) {
       var catKey = building.categories[0];
@@ -123,8 +116,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ── MARKER VISIBILITY ──────────────────────────────────────────────────── */
-
+  /* MARKER VISIBILITY */
   function updateMarkerVisibility() {
     var savedIds = getSaved();
     BUILDINGS.forEach(function (building) {
@@ -144,7 +136,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  /* ── CATEGORY PANEL ─────────────────────────────────────────────────────── */
+  /* CATEGORY PANEL */
 
   function checkmarkSVG() {
     return '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"' +
@@ -267,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("panel-category-detail").classList.remove("visible");
   }
 
-  /* ── SAVED PANEL ────────────────────────────────────────────────────────── */
+  /* SAVED PANEL*/
 
   function renderSavedPanel() {
     var savedIds = getSaved();
@@ -340,7 +332,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* ── SEARCH ─────────────────────────────────────────────────────────────── */
+  /*SEARCH */
 
   function handleSearch(query) {
     var q = query.trim().toLowerCase();
@@ -398,7 +390,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  /* ── FLY TO BUILDING ────────────────────────────────────────────────────── */
+  /*FLY TO BUILDING */
 
   function flyToBuilding(id) {
     var building = null;
@@ -417,7 +409,7 @@ document.addEventListener("DOMContentLoaded", function () {
     setTimeout(function () { marker.openPopup(); }, 850);
   }
 
-  /* ── SELECT ALL / CLEAR ─────────────────────────────────────────────────── */
+  /*SELECT ALL / CLEAR */
 
   function selectAll() {
     Object.keys(CATEGORIES).forEach(function (k) { activeCategories.add(k); });
@@ -433,7 +425,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateMarkerVisibility();
   }
 
-  /* ── SAVED CHANGE EVENT ─────────────────────────────────────────────────── */
+  /* SAVED CHANGE EVENT */
 
   document.addEventListener("savedChange", function () {
     var hasSaved = getSaved().length > 0;
@@ -445,7 +437,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentCategoryKey) openCategoryDetail(currentCategoryKey);
   });
 
-  /* ── DOM WIRING ─────────────────────────────────────────────────────────── */
+  /*DOM WIRING */
 
   placeMarkers();
   renderCategoryPanel();

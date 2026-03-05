@@ -1,19 +1,6 @@
-/*
- * TCD Campus Map — A-Z Catalogue Page Styles (catalogue.css)
- * ============================================================
- * Styles specific to catalogue.html.
- *
- * LAYOUT OVERVIEW:
- *   Fixed header (72px)
- *   └── Main content (scrollable)
- *         - Search bar + alphabet bar (sticky below header)
- *         - Building list grouped by letter
- *   Fixed footer
- *
- *   Panels (filter / saved) slide in from the right edge as overlays.
- */
+/*A-Z catalogue*/
 
-/* ── Page Layout ─────────────────────────────────────────────────────────── */
+/*Page layout*/
 .page-catalogue {
   min-height: 100vh;
   display: flex;
@@ -29,7 +16,7 @@
   padding: 0 24px 60px;
 }
 
-/* ── Sticky Search + Alpha Bar ────────────────────────────────────────────── */
+/* fixed search + alphabet bar*/
 .catalogue-controls {
   position: sticky;
   top: var(--header-height);
@@ -116,7 +103,7 @@
   background-color: rgba(4, 40, 81, 0.05);
 }
 
-/* ── Alphabet Bar ────────────────────────────────────────────────────────── */
+/* alphabet bar */
 .alpha-bar {
   display: flex;
   gap: 0;
@@ -167,7 +154,7 @@
   background-color: var(--parchment-dark);
 }
 
-/* ── Building List ───────────────────────────────────────────────────────── */
+/* Building list */
 .building-group {
   margin-top: 28px;
   animation: fadeIn 200ms ease;
@@ -254,7 +241,7 @@
   color: var(--oxford-blue);
 }
 
-/* ── No Results ───────────────────────────────────────────────────────────── */
+/* No results*/
 .no-results {
   padding: 48px 20px;
   text-align: center;
@@ -262,7 +249,7 @@
   font-style: italic;
 }
 
-/* ── Side Panels (Filter + Saved) ────────────────────────────────────────── */
+/* Side panels (Filter,Saved) */
 .side-panel-overlay {
   position: fixed;
   inset: 0;
@@ -412,7 +399,7 @@
   border-color: var(--oxford-blue);
 }
 
-/* Saved panel specifics */
+/* Saved panel  */
 .saved-panel-item {
   display: flex;
   align-items: center;
@@ -474,7 +461,7 @@
   font-style: italic;
 }
 
-/* ── Catalogue Footer ─────────────────────────────────────────────────────── */
+/*Catalogue Footer */
 .catalogue-footer .site-footer {
   display: flex;
   flex-wrap: wrap;

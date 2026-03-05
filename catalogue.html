@@ -6,31 +6,19 @@
   <title>A-Z Building Catalogue — Trinity College Dublin</title>
   <meta name="description" content="Alphabetical catalogue of all buildings on the Trinity College Dublin campus.">
 
-  <!-- Site styles -->
+  <!--Site styles -->
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/catalogue.css">
-
   <!--
     PLACEHOLDER: Replace the href below with the actual TCD favicon path.
-    e.g. <link rel="icon" href="images/favicon.ico">
-  -->
-  <!-- <link rel="icon" href="images/favicon.ico"> -->
+     <link rel="icon" href="images/favicon.ico">-->
 </head>
 <body class="page-catalogue">
 
-  <!-- Skip navigation for keyboard users -->
-  <a class="skip-link" href="#building-list">Skip to building list</a>
-
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- HEADER                                                                 -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- HEADER -->
   <header class="site-header" role="banner">
     <a href="index.html" class="header-brand" aria-label="Trinity College Dublin — Campus Map home">
-      <!--
-        PLACEHOLDER: Replace the div below with the actual TCD crest image.
-        Example: <img src="images/tcd-crest.png" alt="" width="44" height="44" class="header-brand-logo">
-      -->
-      <div class="header-brand-logo" aria-hidden="true">🏛</div>
+      <div class="header-brand-logo" aria-hidden="true">logo</div> <!--logo placeholder -->
       <div class="header-brand-text">
         <strong>Trinity College Dublin</strong>
         <span>Coláiste na Tríonóide, Baile Átha Cliath</span>
@@ -45,15 +33,11 @@
     </nav>
   </header>
 
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- MAIN CONTENT                                                           -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- MAIN CONTENT-->
   <main>
     <div class="catalogue-main">
-
-      <!-- Sticky search + alphabet controls -->
+      <!-- Sticky search, alphabet controls -->
       <div class="catalogue-controls" role="search" aria-label="Search and filter buildings">
-
         <div class="catalogue-search-row">
           <div class="catalogue-search-wrapper">
             <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
@@ -86,7 +70,6 @@
             </button>
           </div>
         </div>
-
         <!-- Alphabet navigation -->
         <nav id="alpha-bar" class="alpha-bar" aria-label="Alphabetical navigation"></nav>
 
@@ -97,16 +80,11 @@
 
     </div><!-- /catalogue-main -->
   </main>
+  
+  <!-- PANEL OVERLAY (darkens page when a side panel is open)  -->
+  <div id="panel-overlay" class="side-panel-overlay" aria-hidden="true" role="presentation"></div>
 
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- PANEL OVERLAY (darkens page when a panel is open)                     -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <div id="panel-overlay" class="side-panel-overlay" aria-hidden="true"
-    role="presentation"></div>
-
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- FILTER PANEL                                                           -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- FILTER PANEL -->
   <aside id="filter-panel" class="side-panel" role="dialog"
     aria-label="Filter buildings by category" aria-modal="true" aria-hidden="true">
     <div class="side-panel-top">
@@ -121,9 +99,7 @@
     <div id="filter-panel-body" class="side-panel-body"></div>
   </aside>
 
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- SAVED PANEL                                                            -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- SAVED PANEL-->
   <aside id="saved-panel" class="side-panel" role="dialog"
     aria-label="Saved buildings" aria-modal="true" aria-hidden="true">
     <div class="side-panel-top">
@@ -138,9 +114,7 @@
     <div id="saved-panel-body" class="side-panel-body"></div>
   </aside>
 
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- FOOTER                                                                 -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- FOOTER -->
   <div class="catalogue-footer">
     <footer class="site-footer" role="contentinfo">
       <address>
@@ -149,16 +123,10 @@
         T: <a href="tel:+35318961000" style="color:rgba(255,255,255,0.75)">+353 1 896 1000</a>
       </address>
       <nav class="footer-links" aria-label="Footer links">
-        <!--
-          PLACEHOLDER: Replace # with actual URLs.
-        -->
         <a href="#placeholder-feedback">Feedback Form</a>
         <a href="https://www.tcd.ie" target="_blank" rel="noopener">Main TCD page</a>
       </nav>
       <div class="footer-social" aria-label="Social media links">
-        <!--
-          PLACEHOLDER: Replace # with actual social media profile URLs.
-        -->
         <a href="#placeholder-x" class="footer-social-link"
           aria-label="Trinity College Dublin on X (Twitter)" target="_blank" rel="noopener">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
@@ -188,16 +156,12 @@
     </footer>
   </div>
 
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- SCRIPTS                                                                -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-
+  
+  <!-- SCRIPTS-->
   <!-- Data -->
   <script src="data/buildings.js"></script>
-
   <!-- Shared utilities -->
   <script src="js/shared.js"></script>
-
   <!-- Catalogue logic -->
   <script src="js/catalogue.js"></script>
 

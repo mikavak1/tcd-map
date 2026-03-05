@@ -1,18 +1,16 @@
-/**
- * TCD Campus Map - Buildings Data
- * ================================
+/**TCD Campus Map - Buildings Data
+ FOR ADMIN:
  * Each building entry contains:
- *   id          - unique slug identifier
- *   name        - display name
- *   shortDesc   - brief description for map popup
- *   hours       - opening hours (if applicable)
+ *   id - unique slug identifier
+ *   name  - display name
+ *   shortDesc - brief description for map popup
+ *   hours- opening hours (if applicable)
  *   categories  - array of category keys (see CATEGORIES below)
- *   coords      - [latitude, longitude] — adjust via https://www.latlong.net/
- *   image       - path to building image (replace placeholder when ready)
- *   pageUrl     - link to individual building subpage (add when subpages are built)
- *
- * CATEGORIES (keys):
- *   academic | student-services | administrative | heritage | facilities | accessibility
+ *   coords- [latitude, longitude] — adjust via https://www.latlong.net/
+ *   image - path to building image (replace placeholder when ready)
+ *   pageUrl  - link to individual building subpage (add when subpages are built)
+ 
+ * CATEGORIES (keys): academic | student-services | administrative | heritage | facilities | accessibility
  */
 
 const CATEGORIES = {
@@ -59,6 +57,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-academic-registry",
   },
+
   {
     id: "aras-an-phiarsaigh",
     name: "Aras an Phiarsaigh",
@@ -69,6 +68,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-aras-an-phiarsaigh",
   },
+
   {
     id: "arts-building",
     name: "Arts Building",
@@ -79,6 +79,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-arts-building",
   },
+
   {
     id: "atrium",
     name: "Atrium",
@@ -89,6 +90,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-atrium",
   },
+
   {
     id: "berkeley-library",
     name: "Berkeley Library",
@@ -99,6 +101,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-berkeley-library",
   },
+
   {
     id: "tbsi",
     name: "Biomedical Sciences Institute (TBSI)",
@@ -109,6 +112,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-tbsi",
   },
+
   {
     id: "botany-building",
     name: "Botany Building",
@@ -119,6 +123,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-botany-building",
   },
+
   {
     id: "buttery",
     name: "Buttery",
@@ -129,6 +134,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-buttery",
   },
+
   {
     id: "campanile",
     name: "Campanile",
@@ -139,6 +145,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-campanile",
   },
+
   {
     id: "chapel",
     name: "Chapel",
@@ -149,6 +156,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-chapel",
   },
+
   {
     id: "chemistry-building",
     name: "Chemistry Building",
@@ -159,6 +167,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-chemistry-building",
   },
+
   {
     id: "dining-hall",
     name: "Dining Hall",
@@ -169,6 +178,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-dining-hall",
   },
+
   {
     id: "exam-hall",
     name: "Exam Hall (Public Theatre)",
@@ -179,6 +189,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-exam-hall",
   },
+
   {
     id: "fitzgerald-building",
     name: "Fitzgerald Building",
@@ -189,6 +200,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-fitzgerald-building",
   },
+
   {
     id: "goldsmith-hall",
     name: "Goldsmith Hall",
@@ -199,6 +211,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-goldsmith-hall",
   },
+
   {
     id: "gmb",
     name: "Graduates Memorial Building (GMB)",
@@ -209,6 +222,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-gmb",
   },
+
   {
     id: "hamilton-building",
     name: "Hamilton Building",
@@ -219,6 +233,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-hamilton-building",
   },
+
   {
     id: "hamilton-library",
     name: "Hamilton Library",
@@ -229,6 +244,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-hamilton-library",
   },
+
   {
     id: "health-sciences-centre",
     name: "Health Sciences Centre",
@@ -239,6 +255,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-health-sciences-centre",
   },
+
   {
     id: "institute-population-health",
     name: "Institute of Population Health",
@@ -249,6 +266,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-institute-population-health",
   },
+
   {
     id: "james-ussher-library",
     name: "James Ussher Library",
@@ -259,6 +277,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-james-ussher-library",
   },
+
   {
     id: "kinsella-hall",
     name: "Kinsella Hall",
@@ -269,6 +288,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-kinsella-hall",
   },
+
   {
     id: "lecky-library",
     name: "Lecky Library",
@@ -279,6 +299,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-lecky-library",
   },
+
   {
     id: "lloyd-institute",
     name: "Lloyd Institute",
@@ -289,6 +310,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-lloyd-institute",
   },
+
   {
     id: "luce-hall",
     name: "Luce Hall",
@@ -309,6 +331,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-microbiology-building",
   },
+
   {
     id: "museum-building",
     name: "Museum Building",
@@ -319,6 +342,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-museum-building",
   },
+
   {
     id: "old-library",
     name: "Old Library",
@@ -329,6 +353,8 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-old-library",
   },
+
+
   {
     id: "oreilly-institute",
     name: "O'Reilly Institute",
@@ -339,6 +365,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-oreilly-institute",
   },
+
   {
     id: "parsons-building",
     name: "Parsons Building",
@@ -349,6 +376,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-parsons-building",
   },
+
   {
     id: "pavilion-bar",
     name: "Pavilion Bar (The Pav)",
@@ -369,6 +397,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-printing-house",
   },
+
   {
     id: "provosts-house",
     name: "Provost's House",
@@ -379,6 +408,8 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-provosts-house",
   },
+
+
   {
     id: "regent-house",
     name: "Regent House",
@@ -389,6 +420,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-regent-house",
   },
+
   {
     id: "rubrics",
     name: "Rubrics",
@@ -409,6 +441,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-samuel-beckett-theatre",
   },
+
   {
     id: "school-nursing-midwifery",
     name: "School of Nursing and Midwifery",
@@ -419,6 +452,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-school-nursing-midwifery",
   },
+
   {
     id: "science-gallery",
     name: "Science Gallery",
@@ -429,6 +463,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-science-gallery",
   },
+
   {
     id: "sniam",
     name: "SNIAM (School of Natural Sciences)",
@@ -439,6 +474,7 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-sniam",
   },
+
   {
     id: "sports-centre",
     name: "Sports Centre",
@@ -449,6 +485,8 @@ const BUILDINGS = [
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-sports-centre",
   },
+
+
   {
     id: "trinity-business-school",
     name: "Trinity Business School",
@@ -470,6 +508,7 @@ const BUILDINGS = [
     pageUrl: "#placeholder-watts-building",
   },
 ];
+
 
 /* Make available globally */
 if (typeof module !== "undefined") {

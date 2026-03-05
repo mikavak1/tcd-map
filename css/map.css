@@ -1,19 +1,14 @@
-/*
- * TCD Campus Map — Interactive Map Page Styles (map.css)
- * =======================================================
- * Styles specific to index.html (the interactive map page).
- *
- * LAYOUT OVERVIEW:
- *   Fixed header (72px)
- *   ├── Left sidebar (420px wide, full height below header)
- *   │     - search bar
- *   │     - category list / category drill-down / saved panel
- *   │     - fixed footer at bottom
- *   └── Map area (fills remaining width)
- *         - Leaflet map fills entire area
- */
+/*Interactive Map Page 
 
-/* ── Page Layout ─────────────────────────────────────────────────────────── */
+INFO FOR ADMINS: Fixed header (72px)
+Left sidebar (420px wide, full height below header)
+search bar
+category list/category drill-down when you enter category/ saved panel
+fixed footer at bottom
+Map area which fills remaining width
+Leaflet map fills entire area*/
+
+/* Page layout */
 .page-map {
   display: flex;
   height: 100vh;
@@ -21,7 +16,7 @@
   overflow: hidden;
 }
 
-/* ── Sidebar ─────────────────────────────────────────────────────────────── */
+/* Sidebar */
 .sidebar {
   width: var(--sidebar-width);
   flex-shrink: 0;
@@ -35,7 +30,7 @@
   z-index: 500;
 }
 
-/* Sidebar toggle button (collapse/expand on mobile) */
+/* Sidebar toggle button (collapse/expand on mobile) - doesn`t work need to fix----------------*/
 .sidebar-toggle {
   display: none; /* visible on small screens */
   position: absolute;
@@ -63,7 +58,7 @@
   background-color: var(--parchment-dark);
 }
 
-/* ── Sidebar Top: Search bar ─────────────────────────────────────────────── */
+/*  Search bar*/
 .sidebar-search {
   padding: 16px 16px 10px;
   border-bottom: 1px solid var(--border-colour);
@@ -160,14 +155,14 @@
   opacity: 0.65;
 }
 
-/* ── Sidebar Panels (scrollable area) ────────────────────────────────────── */
+/* Sidebar panels (scrollable area) */
 .sidebar-body {
   flex: 1;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-/* ── Search Results List ─────────────────────────────────────────────────── */
+/*Search results List */
 .search-results-list {
   display: none;
   padding: 8px 0;
@@ -207,7 +202,7 @@
   color: var(--text-primary);
 }
 
-/* ── Category List Panel ─────────────────────────────────────────────────── */
+/*Category list panel */
 .panel-categories {
   padding: 8px 0;
 }
@@ -281,7 +276,7 @@
   transition: transform var(--transition-base);
 }
 
-/* ── Category Drill-Down Panel ───────────────────────────────────────────── */
+/* Category drill-down panel, e.g. when you enter category */
 .panel-category-detail {
   display: none;
   flex-direction: column;
@@ -361,7 +356,7 @@
   color: var(--text-primary);
 }
 
-/* ── Saved Panel ─────────────────────────────────────────────────────────── */
+/* Saved panel */
 .panel-saved {
   display: none;
   flex-direction: column;
@@ -456,7 +451,7 @@
   font-style: italic;
 }
 
-/* ── Sidebar Footer ──────────────────────────────────────────────────────── */
+/* Sidebar footer fixed*/
 .sidebar-footer {
   border-top: 1px solid var(--border-colour);
   flex-shrink: 0;
@@ -482,7 +477,7 @@
   justify-content: center;
 }
 
-/* ── Map Area ────────────────────────────────────────────────────────────── */
+/*Map area*/
 .map-area {
   flex: 1;
   position: relative;
@@ -494,7 +489,7 @@
   background-color: #e8e0d4; /* fallback while tiles load */
 }
 
-/* ── Custom Leaflet Map Marker ────────────────────────────────────────────── */
+/*Custom leaflet.js map pins */
 .custom-marker {
   display: flex;
   flex-direction: column;
@@ -526,7 +521,7 @@
   margin-top: -1px;
 }
 
-/* ── Leaflet Popup Customisation ─────────────────────────────────────────── */
+/* Leaflet.js popup style */
 .leaflet-popup-content-wrapper {
   border-radius: var(--radius-lg) !important;
   box-shadow: var(--shadow-lg) !important;
@@ -597,7 +592,6 @@
   color: var(--text-secondary);
   line-height: 1.5;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   margin-bottom: 8px;
@@ -638,15 +632,4 @@
   color: var(--oxford-blue);
 }
 
-/* ── Your Location Marker ─────────────────────────────────────────────────── */
-.location-marker {
-  background-color: #e74c3c;
-  color: white;
-  border-radius: var(--radius-xl);
-  padding: 4px 10px;
-  font-size: 0.72rem;
-  font-weight: 600;
-  white-space: nowrap;
-  box-shadow: var(--shadow-md);
-  border: 2px solid white;
-}
+

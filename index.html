@@ -15,26 +15,15 @@
 
   <!--
     PLACEHOLDER: Replace the href below with the actual TCD favicon path.
-    e.g. <link rel="icon" href="images/favicon.ico">
-  -->
-  <!-- <link rel="icon" href="images/favicon.ico"> -->
+    e.g. <link rel="icon" href="images/favicon.ico">-->
 </head>
 <body class="page-map">
 
-  <!-- Skip navigation for keyboard users -->
-  <a class="skip-link" href="#map">Skip to map</a>
 
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- HEADER                                                                 -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- HEADER-->
   <header class="site-header" role="banner">
     <a href="index.html" class="header-brand" aria-label="Trinity College Dublin — Campus Map home">
-      <!--
-        PLACEHOLDER: Replace the div below with the actual TCD crest image.
-        Example: <img src="images/tcd-crest.png" alt="" width="44" height="44" class="header-brand-logo">
-        The alt="" is intentional — the text beside it is descriptive.
-      -->
-      <div class="header-brand-logo" aria-hidden="true">🏛</div>
+      <div class="header-brand-logo" aria-hidden="true">logo</div> <!-- placeholder-->
       <div class="header-brand-text">
         <strong>Trinity College Dublin</strong>
         <span>Coláiste na Tríonóide, Baile Átha Cliath</span>
@@ -49,9 +38,7 @@
     </nav>
   </header>
 
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- SIDEBAR                                                                -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- SIDEBAR-->
   <aside id="sidebar" class="sidebar" aria-label="Building categories and search">
 
     <!-- Search + bookmark -->
@@ -81,7 +68,7 @@
       </div>
     </div>
 
-    <!-- Scrollable body — holds all panels -->
+    <!-- Scrollable body- holds all panels -->
     <div class="sidebar-body" role="region" aria-live="polite" aria-label="Building list">
 
       <!-- Search results (shown when typing) -->
@@ -92,7 +79,7 @@
       <div id="panel-categories" class="panel-categories" role="list"
         aria-label="Filter by category"></div>
 
-      <!-- Category drill-down detail panel -->
+      <!-- Category drill-down detail panel, e.g. when you enter certain category  -->
       <div id="panel-category-detail" class="panel-category-detail"
         role="region" aria-label="Category buildings" aria-hidden="false">
         <div class="panel-category-header">
@@ -137,19 +124,12 @@
           T: <a href="tel:+35318961000" style="color:rgba(255,255,255,0.75)">+353 1 896 1000</a>
         </address>
         <nav class="footer-links" aria-label="Footer links">
-          <!--
-            PLACEHOLDER: Replace # with actual URLs.
-          -->
           <a href="#placeholder-feedback">Feedback Form</a>
           <a href="https://www.tcd.ie" target="_blank" rel="noopener">Main TCD page</a>
         </nav>
-        <div class="footer-social" aria-label="Social media links">
-          <!--
-            PLACEHOLDER: Replace # with actual social media profile URLs.
-          -->
+        <div class="footer-social" aria-label="Social media links">   <!--link to socials -->
           <a href="#placeholder-x" class="footer-social-link"
             aria-label="Trinity College Dublin on X (Twitter)" target="_blank" rel="noopener">
-            <!-- X / Twitter icon -->
             <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
               fill="currentColor" aria-hidden="true">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -179,32 +159,24 @@
 
   </aside><!-- /sidebar -->
 
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- MAP                                                                    -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
+  <!-- MAP -->
   <main id="map-area" class="map-area">
     <div id="map" aria-label="Interactive campus map" role="application"
       aria-describedby="map-description">
     </div>
     <p id="map-description" class="sr-only">
       Interactive map of Trinity College Dublin campus. Use the sidebar to filter
-      buildings by category or search by name. Click a marker to see building details.
+      buildings by category or search by name. Click a marker to see building details. <!-- for screen readers-->
     </p>
   </main>
 
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-  <!-- SCRIPTS                                                                -->
-  <!-- ══════════════════════════════════════════════════════════════════════ -->
-
+  <!-- SCRIPTS -->
   <!-- Leaflet JS -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
-
   <!-- Data -->
   <script src="data/buildings.js"></script>
-
   <!-- Shared utilities -->
   <script src="js/shared.js"></script>
-
   <!-- Map logic -->
   <script src="js/map.js"></script>
 

@@ -1,19 +1,15 @@
-/**
- * TCD Campus Map — Shared Utilities (shared.js)
- * ===============================================
- * Shared state (saved buildings) persisted to localStorage,
- * and utility functions used across both pages.
- *
- * DEPENDENCIES: Must be loaded AFTER buildings.js
+/*TCD Campus Map Shared Utilities 
+ FOR ADMINS: Shared state (saved buildings) persisted to localStorage,
+ and utility functions used across both pages.
+ DEPENDENCIES: Must be loaded AFTER buildings.js
  */
 
 "use strict";
 
-/* ── Local-Storage Key ────────────────────────────────────────────────────── */
+/* Local storage key */
 const SAVED_KEY = "tcd_saved_buildings";
 
-/**
- * Get saved building IDs from localStorage.
+/*Get saved building IDs from localStorage.
  * @returns {string[]}
  */
 function getSaved() {
@@ -24,8 +20,7 @@ function getSaved() {
   }
 }
 
-/**
- * Persist saved building IDs array to localStorage.
+/**Persist saved building IDs array to localStorage.
  * @param {string[]} ids
  */
 function setSaved(ids) {
@@ -33,9 +28,9 @@ function setSaved(ids) {
 }
 
 /**
- * Toggle saved state for a building ID. Returns new saved state (boolean).
- * @param {string} id
- * @returns {boolean}
+Toggle saved state for a building ID. Returns new saved state (boolean).
+ @param {string} id
+ @returns {boolean}
  */
 function toggleSaved(id) {
   const saved = getSaved();
@@ -52,24 +47,24 @@ function toggleSaved(id) {
 }
 
 /**
- * Check whether a building ID is currently saved.
- * @param {string} id
- * @returns {boolean}
+ Check whether a building ID is currently saved.
+ @param {string} id
+ @returns {boolean}
  */
 function isSaved(id) {
   return getSaved().includes(id);
 }
 
 /**
- * Remove a specific building ID from saved list.
- * @param {string} id
+ Remove a specific building ID from saved list.
+ @param {string} id
  */
 function removeSaved(id) {
   const saved = getSaved().filter((s) => s !== id);
   setSaved(saved);
 }
 
-/* ── Category helpers ─────────────────────────────────────────────────────── */
+/* Category helpers  */
 
 /**
  * Get the first (primary) category object for a building.
@@ -115,8 +110,8 @@ function trashSVG(size = 16) {
 }
 
 /**
- * Render category icon using simple SVG shapes inline.
- * These are intentionally simple — replace with an icon font if preferred.
+ Render category icon using simple SVG shapes inline.
+ These are intentionally simple — replace with an icon font if preferred.
  * @param {string} categoryKey
  * @param {number} size
  * @returns {string} SVG markup
@@ -134,7 +129,7 @@ function categoryIconSVG(categoryKey, size = 15) {
 }
 
 /**
- * Dispatch a custom event to notify other scripts that saved state changed.
+ * Dispatch a custom event to notify other scripts that saved state changed
  * @param {string} buildingId
  * @param {boolean} newState - true = saved, false = removed
  */

@@ -1,19 +1,16 @@
-/**
- * TCD Campus Map — A-Z Catalogue Logic (catalogue.js)
- * =====================================================
- * Renders the alphabetical building list, handles search,
- * filter panel, saved panel and bookmark toggling.
- *
- * DEPENDENCIES (loaded before this file):
- *   - data/buildings.js    (BUILDINGS, CATEGORIES)
- *   - js/shared.js         (getSaved, toggleSaved, isSaved, etc.)
+/**TCD Campus Map — A-Z Catalogue Logic (catalogue.js)
+ * FOR ADMINS:
+ Renders the alphabetical building list, handles search,
+ filter panel, saved panel and bookmark toggling.
+ 
+ DEPENDENCIES (loaded before this file):
+data/buildings.js  (BUILDINGS, CATEGORIES)
+js/shared.js (getSaved, toggleSaved, isSaved, etc.)
  */
 
 "use strict";
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  STATE
- * ─────────────────────────────────────────────────────────────────────────── */
+/*  STATE*/
 
 /** Active category filters. Empty = show all. */
 let activeFilters = new Set();
@@ -21,9 +18,7 @@ let activeFilters = new Set();
 /** Current search query */
 let searchQuery = "";
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  DERIVED DATA
- * ─────────────────────────────────────────────────────────────────────────── */
+/* DERIVED DATA*/
 
 /** Buildings sorted alphabetically. */
 const SORTED_BUILDINGS = [...BUILDINGS].sort((a, b) =>
@@ -38,9 +33,7 @@ const LETTERS_WITH_BUILDINGS = new Set(
   SORTED_BUILDINGS.map((b) => b.name[0].toUpperCase())
 );
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  FILTERING
- * ─────────────────────────────────────────────────────────────────────────── */
+/* FILTERING */
 
 /**
  * Returns the list of buildings to display given current filters + search.
@@ -58,13 +51,9 @@ function filteredBuildings() {
   });
 }
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  RENDER BUILDING LIST
- * ─────────────────────────────────────────────────────────────────────────── */
+/* RENDER BUILDING LIST */
 
-/**
- * Render grouped alphabetical list of buildings into #building-list.
- */
+/**Render grouped alphabetical list of buildings into #building-list*/
 function renderBuildingList() {
   const container = document.getElementById("building-list");
   container.innerHTML = "";
@@ -148,13 +137,9 @@ function renderBuildingList() {
     });
 }
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  ALPHABET BAR
- * ─────────────────────────────────────────────────────────────────────────── */
+/*ALPHABET BAR */
 
-/**
- * Build the alphabet navigation bar.
- */
+/**Build the alphabet navigation bar.*/
 function buildAlphaBar() {
   const bar = document.getElementById("alpha-bar");
   bar.innerHTML = "";
@@ -175,9 +160,8 @@ function buildAlphaBar() {
   });
 }
 
-/**
- * Update alpha bar to reflect which letters are currently visible.
- * @param {Set<string>} presentLetters
+/**Update alpha bar to reflect which letters are currently visible.
+ @param {Set<string>} presentLetters
  */
 function updateAlphaBar(presentLetters) {
   document.querySelectorAll(".alpha-btn").forEach((btn) => {
@@ -199,9 +183,8 @@ function updateAlphaBar(presentLetters) {
   });
 }
 
-/**
- * Smooth-scroll to a letter section.
- * @param {string} letter
+/**Smooth-scroll to a letter section.
+@param {string} letter
  */
 function scrollToLetter(letter) {
   const section = document.getElementById(`section-${letter}`);
@@ -213,9 +196,7 @@ function scrollToLetter(letter) {
   window.scrollTo({ top, behavior: "smooth" });
 }
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  FILTER PANEL
- * ─────────────────────────────────────────────────────────────────────────── */
+/*FILTER PANEL */
 
 function renderFilterPanel() {
   const body = document.getElementById("filter-panel-body");
@@ -276,9 +257,7 @@ function checkmarkSVG() {
   </svg>`;
 }
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  SAVED PANEL
- * ─────────────────────────────────────────────────────────────────────────── */
+/* SAVED PANEL*/
 
 function renderSavedPanel() {
   const body = document.getElementById("saved-panel-body");
@@ -329,9 +308,7 @@ function renderSavedPanel() {
   });
 }
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  PANEL OPEN/CLOSE HELPERS
- * ─────────────────────────────────────────────────────────────────────────── */
+/* PANEL OPEN/CLOSE HELPERS*/
 
 function openPanel(panelId) {
   document.getElementById("panel-overlay").classList.add("visible");
@@ -347,9 +324,7 @@ function closeAllPanels() {
   });
 }
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  STICKY HEADER SCROLL EFFECT
- * ─────────────────────────────────────────────────────────────────────────── */
+/*  STICKY HEADER SCROLL EFFECT*/
 
 function handleScroll() {
   const controls = document.querySelector(".catalogue-controls");
@@ -360,9 +335,7 @@ function handleScroll() {
   }
 }
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  SAVED CHANGE EVENT — refresh bookmark icons in list
- * ─────────────────────────────────────────────────────────────────────────── */
+/* SAVED CHANGE EVENT — refresh bookmark icons in list */
 
 document.addEventListener("savedChange", (e) => {
   const { id, saved } = e.detail;
@@ -384,9 +357,7 @@ document.addEventListener("savedChange", (e) => {
   document.getElementById("btn-saved-toolbar").classList.toggle("active", hasSaved);
 });
 
-/* ─────────────────────────────────────────────────────────────────────────── *
- *  DOM WIRING
- * ─────────────────────────────────────────────────────────────────────────── */
+/* DOM WIRING */
 
 document.addEventListener("DOMContentLoaded", () => {
   buildAlphaBar();
