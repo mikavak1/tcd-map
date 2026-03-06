@@ -9,9 +9,8 @@
 /* Local storage key */
 const SAVED_KEY = "tcd_saved_buildings";
 
-/*Get saved building IDs from localStorage.
- * @returns {string[]}
- */
+/**Get saved building ids from localStorage
+ @returns {string[]}*/
 function getSaved() {
   try {
     return JSON.parse(localStorage.getItem(SAVED_KEY)) || [];
@@ -20,67 +19,62 @@ function getSaved() {
   }
 }
 
-/**Persist saved building IDs array to localStorage.
- * @param {string[]} ids
- */
+/**Persist saved building ids array to localStorage
+ @param {string[]} ids*/
 function setSaved(ids) {
   localStorage.setItem(SAVED_KEY, JSON.stringify(ids));
 }
 
-/**
-Toggle saved state for a building ID. Returns new saved state (boolean).
+/**Toggle saved state for a building id, Returns new saved state (boolean)
  @param {string} id
  @returns {boolean}
  */
-function toggleSaved(id) {
+function toggleSaved(id){
   const saved = getSaved();
-  const idx = saved.indexOf(id);
+  const idx= saved.indexOf(id);
   if (idx === -1) {
-    saved.push(id);
+    saved.push(id) ;
     setSaved(saved);
     return true;
   } else {
     saved.splice(idx, 1);
-    setSaved(saved);
+    setSaved (saved);
     return false;
   }
 }
 
-/**
- Check whether a building ID is currently saved.
- @param {string} id
+/**Check whether a building id is currently saved
+ @param {string}  id
  @returns {boolean}
  */
 function isSaved(id) {
-  return getSaved().includes(id);
+  return  getSaved().includes(id);
 }
 
-/**
- Remove a specific building ID from saved list.
- @param {string} id
+/**Remove a specific building ID from saved list
+ @param {string}  id
  */
 function removeSaved(id) {
-  const saved = getSaved().filter((s) => s !== id);
+  const saved= getSaved().filter((s) => s !== id);
   setSaved(saved);
+
 }
 
 /* Category helpers  */
 
-/**
- * Get the first (primary) category object for a building.
- * @param {object} building
- * @returns {object} category config
+/**Get the first (primary) category object for a building
+ @param {object} building
+@returns {object} category config
  */
 function primaryCategory(building) {
-  const key = building.categories[0];
-  return CATEGORIES[key] || { colour: "#888", label: "Other", icon: "circle" };
+  const key= building.categories[0];
+  return  CATEGORIES[key] || { colour: "#888", label: "Other", icon: "circle" };
 }
 
-/**
- * Render an SVG bookmark icon.
- * @param {boolean} filled
- * @param {number} size
- * @returns {string} SVG markup
+/**Render svg bookmark icon
+ @param {boolean} filled
+ @param {number} size
+  @returns {string} SVG markup
  */
 function bookmarkSVG(filled, size = 18) {
   const fill = filled ? "currentColor" : "none";
@@ -92,13 +86,12 @@ function bookmarkSVG(filled, size = 18) {
   </svg>`;
 }
 
-/**
- * Render a trash / delete icon SVG.
- * @param {number} size
- * @returns {string} SVG markup
+/** Render a trash icon svg
+  @param {number} size
+  @returns {string} SVG markup
  */
-function trashSVG(size = 16) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}"
+function  trashSVG(size = 16) {
+  return  `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}"
     viewBox="0 0 24 24" fill="none" stroke="currentColor"
     stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
     aria-hidden="true">
@@ -109,29 +102,27 @@ function trashSVG(size = 16) {
   </svg>`;
 }
 
-/**
- Render category icon using simple SVG shapes inline.
- These are intentionally simple — replace with an icon font if preferred.
- * @param {string} categoryKey
- * @param {number} size
- * @returns {string} SVG markup
+/**Render category icon using simple svg shapes inline
+  @param {string} categoryKey
+ @param {number} size
+  @returns {string} SVG markup
  */
 function categoryIconSVG(categoryKey, size = 15) {
-  const icons = {
-    "academic": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
-    "student-services": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-    "administrative": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`,
-    "heritage": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>`,
-    "facilities": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`,
-    "accessibility": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`,
-  };
+  const icons = {  //change to more relvenat later-----------------------------------------------------------------------
+    "academic": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`, //heart
+    "student-services": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`, //people icon
+    "administrative": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>`, //suitcase
+    "heritage": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg>`, //startburst
+    "facilities": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>`, //grid
+    "accessibility": `<svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>`, //heart
+  }; 
   return icons[categoryKey] || icons["administrative"];
 }
 
 /**
  * Dispatch a custom event to notify other scripts that saved state changed
- * @param {string} buildingId
- * @param {boolean} newState - true = saved, false = removed
+ @param {string} buildingId
+ @param {boolean} newState - true = saved, false = removed
  */
 function dispatchSavedChange(buildingId, newState) {
   const event = new CustomEvent("savedChange", {

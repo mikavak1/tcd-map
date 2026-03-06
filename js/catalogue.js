@@ -1,4 +1,4 @@
-/**TCD Campus Map — A-Z Catalogue Logic (catalogue.js)
+/**TCD Campus Map - A-Z Catalogue Logic (catalogue.js)
  * FOR ADMINS:
  Renders the alphabetical building list, handles search,
  filter panel, saved panel and bookmark toggling.

@@ -123,8 +123,7 @@ Leaflet map fills entire area*/
   flex-shrink: 0;
 }
 
-.btn-saved:hover,
-.btn-saved.has-saved {
+.btn-saved:hover,.btn-saved.has-saved {
   border-color: var(--oxford-blue);
   color: var(--oxford-blue);
   background-color: rgba(4, 40, 81, 0.05);
@@ -627,8 +626,7 @@ Leaflet map fills entire area*/
   border-radius: 2px;
 }
 
-.popup-save-btn:hover,
-.popup-save-btn.saved {
+.popup-save-btn:hover,.popup-save-btn.saved {
   color: var(--oxford-blue);
 }
 

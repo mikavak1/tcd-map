@@ -10,13 +10,12 @@ data/buildings.js (BUILDINGS, CATEGORIES)
  */
 
 /**  ALL CODE runs inside DOMContentLoaded so the #map element exists first */
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener ("DOMContentLoaded", function () {
 
   "use strict";
 
   /* MAP INITIALISATION */
-
-  var MAP_CENTER  = [53.3440, -6.2549];
+  var MAP_CENTER= [53.3440, -6.2549]; //location of tcd
   var MAP_ZOOM = 16;
   var MAP_MIN_ZOOM = 14;
   var MAP_MAX_ZOOM = 19;
@@ -29,18 +28,19 @@ document.addEventListener("DOMContentLoaded", function () {
     zoomControl: false,
   });
 
+  //load map tiles 
   L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
     maxZoom: MAP_MAX_ZOOM,
-  }).addTo(map);
+  }).addTo(map) ;
 
   L.control.zoom({ position: "topright" }).addTo(map);
 
-  /*STATE */
+  /*STATE -----*/
   var activeCategories = new Set();
   var showingSaved = false;
-  var currentCategoryKey = null;
-  var markerMap = {};
+  var currentCategoryKey =null;
+  var markerMap ={};
 
   /* MARKER ICONS*/
   function createMarkerIcon(colour, categoryKey) {
@@ -50,18 +50,19 @@ document.addEventListener("DOMContentLoaded", function () {
       categoryIconSVG(categoryKey, 14) +
       '</div></div>' +
       '<div class="marker-tail"></div></div>';
-    return L.divIcon({
+    return L.divIcon ({
       html: html,
       className: "",
       iconSize: [36, 46],
       iconAnchor: [17, 46],
       popupAnchor: [0, -48],
-    });
+    }
+  );
   }
 
   /* POPUP HTML */
   function buildPopupHTML(building) {
-    var saved = isSaved(building.id);
+    var saved = isSaved (building.id) ;
     var imgTag = '<img src="' + building.image + '" alt="Photo of ' + building.name +
       '" class="popup-img" onerror="this.outerHTML=\'<div class=&quot;popup-img-placeholder&quot;>Image coming soon</div>\'">';
     return '<div class="popup-card">' +
@@ -72,8 +73,8 @@ document.addEventListener("DOMContentLoaded", function () {
       '<p class="popup-desc">' + building.shortDesc + '</p>' +
       '<div class="popup-footer">' +
       '<a href="' + building.pageUrl + '" class="popup-more-link" aria-label="More about ' + building.name + '">more&gt;</a>' +
-      '<button class="popup-save-btn ' + (saved ? 'saved' : '') + '" data-id="' + building.id + '"' +
-      ' aria-label="' + (saved ? 'Remove from saved' : 'Save') + ' ' + building.name + '"' +
+      '<button class="popup-save-btn '+ (saved ? 'saved' : '') + '" data-id="' + building.id + '"' +
+      ' aria-label="'+ (saved ? 'Remove from saved' : 'Save') + ' ' + building.name + '"' +
       ' aria-pressed="' + saved + '">' +
       bookmarkSVG(saved, 17) +
       '</button>' +
