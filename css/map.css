@@ -263,16 +263,33 @@ Leaflet map fills entire area*/
   background-color: var(--white);
 }
 
+.category-item:hover .category-checkbox:not(.checked) {
+  border-color: var(--oxford-blue);
+}
+
 .category-checkbox.checked {
   background-color: var(--oxford-blue);
   border-color: var(--oxford-blue);
 }
 
 .category-chevron {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
   color: var(--text-muted);
   flex-shrink: 0;
   margin-left: 4px;
-  transition: transform var(--transition-base);
+  font-size: 1.3rem;
+  transition: background-color var(--transition-base), color var(--transition-base), transform var(--transition-base);
+}
+
+.category-chevron:hover {
+  background-color: var(--oxford-blue);
+  color: var(--white);
+  transform: translateX(3px);
 }
 
 /* Category drill-down panel, e.g. when you enter category */

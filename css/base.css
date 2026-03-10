@@ -110,18 +110,11 @@ body {
 }
 
 .header-brand-logo {
-  width: 44px;
-  height: 44px;
+  width: 55px;
+  height: 55px;
   flex-shrink: 0;
-  /* Placeholder for tcd logo-will be replaced */
-  background-color: rgba(255, 255, 255, 0.15);
-  border: 2px solid rgba(255, 255, 255, 0.3);
-  border-radius: var(--radius-sm);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 18px;
+  object-fit: contain;
+  object-position: center;
 }
 
 .header-brand-text {
@@ -156,9 +149,10 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 14px;
+  padding: 8px 18px;
   background: transparent;
-  border: none;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
   cursor: pointer;
   text-decoration: none;
   color: var(--white);
@@ -166,11 +160,15 @@ body {
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  transition: opacity var(--transition-fast);
+  transition: background-color var(--transition-base), border-color var(--transition-base), gap var(--transition-base);
 }
 
 .header-nav-link:hover {
-  opacity: 0.8;
+  gap: 12px;
+}
+
+.header-nav-link:hover .nav-arrow {
+  color: var(--white);
 }
 
 .header-nav-link .nav-arrow {
