@@ -69,7 +69,7 @@ const BUILDINGS = [
     categories: ["academic", "accessibility"],
     coords: [53.3432, -6.2574],
     image: "images/arts.jpg",
-    pageUrl: "#placeholder-arts-building",
+    pageUrl: "artsbuilding.html",
   },
   {
     id: "atrium",
