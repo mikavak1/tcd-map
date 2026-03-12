@@ -68,7 +68,7 @@ const BUILDINGS = [
     hours: "Mon-Fri 08:00-22:00",
     categories: ["academic", "accessibility"],
     coords: [53.3432, -6.2574],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/arts.jpg",
     pageUrl: "#placeholder-arts-building",
   },
   {
@@ -89,7 +89,7 @@ const BUILDINGS = [
     hours: "Mon-Fri 08:00-22:00 | Sat-Sun 10:00-18:00",
     categories: ["academic"],
     coords: [53.3437, -6.2566],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/bekerley.jpg",
     pageUrl: "#placeholder-berkeley-library",
   },
   {
@@ -109,7 +109,7 @@ const BUILDINGS = [
     hours: "Mon-Fri 08:00-20:00",
     categories: ["facilities"],
     coords: [53.3441, -6.2583],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/buttery.jpg",
     pageUrl: "#placeholder-buttery",
   },
   /* C */
@@ -120,7 +120,7 @@ const BUILDINGS = [
     hours: "Accessible during campus open hours",
     categories: ["heritage"],
     coords: [53.3445, -6.2580],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/campanile.jpg",
     pageUrl: "#placeholder-campanile",
   },
   {
@@ -135,14 +135,14 @@ const BUILDINGS = [
   },
   /* D */
   {
-    id: "dining-hall",
-    name: "Dining Hall",
-    shortDesc: "Historic 18th-century dining hall serving hot meals and functioning as an event venue.",
-    hours: "Mon-Fri 08:00-15:00",
-    categories: ["facilities"],
+    id: "students-hall",
+    name: "Students Union",
+    shortDesc: "The official representative body for all 20,000+ students at Trinity College Dublin.",
+    hours: "Mon-Fri 09:00-17:00",
+    categories: ["student-services"],
     coords: [53.3445, -6.2591],
-    image: "images/placeholders/placeholder.svg",
-    pageUrl: "#placeholder-dining-hall",
+    image: "images/students.union.jpg",
+    pageUrl: "#placeholder-union",
   },
   /* E */
   {
@@ -152,7 +152,7 @@ const BUILDINGS = [
     hours: "Event-dependent",
     categories: ["heritage", "administrative"],
     coords: [53.3447, -6.2577],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/exam.hall.jpg",
     pageUrl: "#placeholder-exam-hall",
   },
 
@@ -164,7 +164,7 @@ const BUILDINGS = [
     hours: "Variable - check society schedules",
     categories: ["student-services"],
     coords: [53.3449, -6.2592],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/graduate.memorial.jpg",
     pageUrl: "#placeholder-gmb",
   },
   /* H */
@@ -175,7 +175,7 @@ const BUILDINGS = [
     hours: "Mon-Fri 08:00-18:00",
     categories: ["academic"],
     coords: [53.3421, -6.2483],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/hamilton.jpg",
     pageUrl: "#placeholder-hamilton-building",
   },
   {
@@ -239,7 +239,7 @@ const BUILDINGS = [
     hours: "Mon-Fri 08:00-18:00",
     categories: ["academic"],
     coords: [53.3454, -6.2503],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/lloyd.jpg",
     pageUrl: "#placeholder-lloyd-institute",
   },
   {
@@ -281,7 +281,7 @@ const BUILDINGS = [
     hours: "09:30-17:00 | Mon-Sun",
     categories: ["heritage"],
     coords: [53.3438, -6.2576],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/old.library.jpg",
     pageUrl: "#placeholder-old-library",
   },
   {
@@ -312,7 +312,7 @@ const BUILDINGS = [
     hours: "Mon-Fri 12:00-23:00 | Sat 12:00-22:00",
     categories: ["facilities"],
     coords: [53.3430, -6.2522],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/pav.jpg",
     pageUrl: "#placeholder-pavilion-bar",
   },
   {
@@ -414,7 +414,7 @@ const BUILDINGS = [
     hours: "Mon-Fri 07:00-22:00 | Sat-Sun 09:00-20:00",
     categories: ["facilities"],
     coords: [53.3462, -6.2498],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/sports.jpg",
     pageUrl: "#placeholder-sports-centre",
   },
   /* T */
@@ -425,7 +425,7 @@ const BUILDINGS = [
     hours: "Mon-Fri 08:00-22:00",
     categories: ["academic"],
     coords: [53.3420, -6.2560],
-    image: "images/placeholders/placeholder.svg",
+    image: "images/business.school.jpg",
     pageUrl: "#placeholder-trinity-business-school",
   },
   /* W */
