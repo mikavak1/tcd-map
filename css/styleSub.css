@@ -1,0 +1,533 @@
+/* -------------------------------------------------------------------------- */
+/* YOUR ORIGINAL SUBPAGE CSS STARTS HERE */
+/* -------------------------------------------------------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+  font-size: 20px;
+}
+
+body {
+  background-color: #f5f1e8;
+  color: #0c2c5c;
+  padding-top: 72px; /* for fixed header spacing */
+}
+
+/*------------------------------------------------------------------------------- HEADER */
+
+.top-bar {
+  height: 70px;
+  background-color: #0c2c5c;
+  color: white;
+  padding: 15px 30px 15px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.left img:last-child {
+  width: 70px;
+  margin-left: 30px;
+  padding: 0 10px;
+}
+
+nav a {
+  display: flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+  font-size: 22px;
+}
+
+nav a img {
+  margin-right: 12px;
+  width: 19px;
+}
+
+/* ----------------------------------------------------------------------INTRO */
+
+.intro {
+  max-width: 1300px;
+  margin: 30px auto;
+  padding: 30px 20px;
+  display: flex;
+}
+
+.image-section {
+  display: flex;
+  margin-right: 30px;
+}
+
+.image-section img {
+  width: 350px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-right: 25px;
+}
+
+.title-section h1 {
+  font-size: 40px;
+  margin-bottom: 15px;
+}
+
+.info-card {
+  background: #f0e9e1;
+  padding: 40px 22px;
+  border-radius: 10px;
+  width: 481px;
+  line-height: 1.6;
+  border: 0.1px solid #e0dad3;
+  box-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.08);
+}
+
+/* ----------------------------------------------------------------------------CONTENT */
+
+.container {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+.card {
+  background: #f0e9e1;
+  border-radius: 10px;
+  border: 0.1px solid #e0dad3;
+  box-shadow: 0.5px 0.5px 2px rgba(0, 0, 0, 0.08);
+  padding: 22px;
+  margin-bottom: 40px;
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 25px;
+}
+
+/* ------------------------------------------------------------------------TABLE */
+
+.table-wrapper {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  font-size: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+/* -----------------------------------------------------------------------------------GALLERY */
+
+.gallery {
+  margin-bottom: 100px;
+  margin-top: 80px;
+}
+
+.gallery h2 {
+  font-size: 25px;
+}
+
+.gallery-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.gallery-grid img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/*------------------------------------------------------------------------------- FOOTER */
+
+footer {
+  background-color: #0c2c5c;
+  color: white;
+  padding: 11px 55px;
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p,
+a {
+  font-size: 16px;
+}
+
+footer .address p:last-child {
+  font-size: 12px;
+}
+
+footer .links a {
+  color: white;
+  text-decoration: none;
+  margin: 0 70px 0 20px;
+}
+
+.socialMedia a img {
+  width: 50px;
+}
+
+.socialMedia a {
+  margin: 0 20px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* YOUR ORIGINAL SUBPAGE CSS ENDS HERE */
+/* -------------------------------------------------------------------------- */
+
+/* -------------------------------------------------------------------------- */
+/* LANDING PAGE HEADER & FOOTER STYLES ONLY (added at the end) */
+/* -------------------------------------------------------------------------- */
+
+:root {
+  --oxford-blue: #042851;
+  --oxford-blue-dark: #021d3b;
+  --oxford-blue-mid: #0a3d70;
+  --parchment-white: #F5F0E8;
+  --parchment-light: #faf7f2;
+  --parchment-dark: #e8e2d5;
+  --white: #ffffff;
+  --text-primary:#1a1a1a;
+  --text-secondary:#444444;
+  --text-muted: #777777;
+  --border-colour: #d8d2c8;
+  --shadow-sm: 0 1px 4px rgba(4, 40, 81, 0.10);
+  --shadow-md: 0 4px 16px rgba(4, 40, 81, 0.14);
+  --shadow-lg: 0 8px 32px rgba(4, 40, 81, 0.18);
+
+  --font-display: 'Crimson Pro', Georgia, serif;
+  --font-body:'DM Sans', system-ui, sans-serif;
+
+  --header-height:72px;
+  --footer-height: 160px;
+
+  --radius-sm:4px;
+  --radius-md:8px;
+  --radius-lg:12px;
+  --radius-xl:20px;
+
+  --transition-fast: 150ms ease;
+  --transition-base: 250ms ease;
+  --transition-slow: 400ms ease;
+}
+
+/* Shared Header*/
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: var(--header-height);
+  background-color: var(--oxford-blue);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-shadow: var(--shadow-md);
+}
+
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+}
+
+.header-brand-logo {
+  width: 55px;
+  height: 55px;
+  flex-shrink: 0;
+  object-fit: contain;
+  object-position: center;
+}
+
+.header-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-brand-text strong {
+  font-family: var(--font-display);
+  font-size: 1.125rem;
+  font-weight: 600;
+  color:var(--white);
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.header-brand-text span{
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.3;
+  font-weight: 300;
+}
+
+.header-nav {
+  display:flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* A-Z header button */
+.header-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1.5px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--white);
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  transition: background-color var(--transition-base), border-color var(--transition-base), gap var(--transition-base);
+}
+
+.header-nav-link:hover {
+  gap: 12px;
+}
+
+.header-nav-link:hover .nav-arrow {
+  color: var(--white);
+}
+
+.header-nav-link .nav-arrow {
+  font-size: 1.6rem;
+  font-family: var(--font-body);
+  font-weight: 300;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Shared footer */
+.site-footer {
+  background-color: var(--oxford-blue);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 28px 32px 24px;
+}
+
+.site-footer address {
+  font-style: normal;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.site-footer address strong {
+  font-weight: 500;
+  color: var(--white);
+}
+
+.footer-links{
+  display: flex;
+  gap: 24px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.75);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: 0.82rem;
+  transition: color var(--transition-fast);
+}
+
+.footer-links a:hover{
+  color: var(--white);
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.footer-social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 15px;
+  transition: border-color var(--transition-fast), background-color var(--transition-fast), color var(--transition-fast);
+}
+
+.footer-social-link:hover {
+  border-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+/* Shared icon buttons (from base) */
+.icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: var(--radius-sm);
+  transition: background-color var(--transition-fast);
+  line-height: 1;
+}
+
+.icon-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Accessibility mode (toggled by artsbuilding-accessibility.js) */
+body.accessibility-mode {
+  background-color: #fbf7ee;
+  color: #0b2346;
+}
+
+body.accessibility-mode .info-card,
+body.accessibility-mode .card {
+  background: #fffaf2;
+  border-color: #9c8e78;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.14);
+}
+
+body.accessibility-mode p,
+body.accessibility-mode li,
+body.accessibility-mode td,
+body.accessibility-mode th,
+body.accessibility-mode a,
+body.accessibility-mode span {
+  font-size: 22px;
+  line-height: 1.75;
+}
+
+body.accessibility-mode h1 {
+  font-size: 46px;
+}
+
+body.accessibility-mode h2 {
+  font-size: 30px;
+}
+
+.footer-social {
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+}
+
+.footer-accessibility-btn {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.footer-accessibility-btn img {
+  width: 22px;
+  height: 22px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background: #f5f1e8;
+  width: min(900px, 92vw);
+  padding: 28px;
+  border-radius: 14px;
+  border: 1px solid #e0dad3;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.modal h2 {
+  font-size: 30px;
+  color: #000;
+}
+
+.modal p {
+  font-size: 20px;
+  color: #000;
+  font-weight: 700;
+}
+
+#closeModal {
+  cursor: pointer;
+  margin-right: 12px;
+  border: none;
+  background: transparent;
+  padding: 0;
+}
+
+#closeModal img {
+  width: 34px;
+  border-radius: 50%;
+}
+
+.ac-buttons {
+  padding: 10px 16px;
+  background-color: #f4b400;
+  border: none;
+  border-radius: 10px;
+  margin: 12px;
+  cursor: pointer;
+}
+
+.lines {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.lines p,
+.lines input,
+.lines button {
+  padding: 12px;
+}
