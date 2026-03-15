@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Old Library & Long Room | Trinity College Dublin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Source+Sans+Pro:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./images/tcd3.png" />
+    <link rel="stylesheet" href="css/styleSub.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <a href="index.html" class="header-brand" aria-label="Trinity College Dublin - Campus Map home">
+        <img src="images/TCDLOGO.png" alt="TCD logo" width="55" height="55" class="header-brand-logo" />
+        <div class="header-brand-text">
+          <strong>Trinity College Dublin</strong>
+          <span>Coláiste na Tríonóide, Baile Átha Cliath</span>
+          <span>The University of Dublin</span>
+        </div>
+      </a>
+
+      <div class="header-nav" style="display:flex; align-items:center; gap:12px;">
+        <a href="catalogue.html" class="header-nav-link">
+          A-Z <span class="nav-arrow" aria-hidden="true">&#9654;</span>
+        </a>
+
+        <button id="accessibilityBtn" class="icon-btn" aria-label="Accessibility options">
+          <img src="images/accessibility.png" alt="Accessibility features" width="28" height="28">
+        </button>
+      </div>
+    </header>
+
+    <section class="intro">
+      <div class="image-section">
+        <a href="#"><img src="images/Long Room-Old Library/5.jpg" alt="Old Library Exterior" /></a>
+        <a href="#"><img src="images/Long Room-Old Library/10.jpg" alt="The Long Room interior" /></a>
+      </div>
+
+      <div class="title-section">
+        <h1>Old Library (The Long Room)</h1>
+
+        <div class="info-card">
+          <p><strong>Departments:</strong> Library Services & Visitor Experience</p>
+          <p><strong>Hours:</strong> Mon-Sun 09:30 - 17:00</p>
+          <p><strong>Contact:</strong> Visitor Desk +353 1 896 1127</p>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="card">
+        <h2>General Information</h2>
+        <p>Built between 1712 and 1732, the Old Library is home to the Book of Kells and the magnificent Long Room. This 65-meter hall houses 200,000 of the library’s oldest books and remains one of the most impressive libraries in the world.</p>
+      </section>
+
+      <section class="card">
+        <h2>Accessibility Highlights</h2>
+        <p>Step-free access is fully provided. Visitors can use the lift to reach the Book of Kells exhibition and the Long Room. Staff are always on hand to assist with navigation.</p>
+      </section>
+
+      <section class="card">
+        <h2>What to See</h2>
+        <p>Don't miss the 15th-century Brian Boru Harp and the 1916 Proclamation of the Irish Republic. The Long Room also features a series of marble busts representing the great thinkers of the Western world.</p>
+      </section>
+
+      <section id="table-card" class="card">
+        <h2>Key Visiting Areas</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr>
+              <th>Area Code</th>
+              <th>Space Name</th>
+              <th>Floor</th>
+            </tr>
+            <tr>
+              <td>LIB.01</td>
+              <td>Book of Kells Treasury</td>
+              <td>Ground Floor</td>
+            </tr>
+            <tr>
+              <td>LIB.LR</td>
+              <td>The Long Room</td>
+              <td>1st Floor</td>
+            </tr>
+            <tr>
+              <td>LIB.GS</td>
+              <td>Library Gift Shop</td>
+              <td>Ground Floor</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>External Links</h2>
+        <a href="https://www.tcd.ie/library/old-library/" target="_blank">Official Old Library Website</a>
+      </section>
+
+      <section class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <a href="#"><img src="images/Long Room-Old Library/3.jpg" alt="Visitor Entrance" /></a>
+          <a href="#"><img src="images/Long Room-Old Library/11.jpg" alt="Gaia Earth Installation" /></a>
+          <a href="#"><img src="images/Long Room-Old Library/15.jpg" alt="Library Vaulted Ceiling" /></a>
+          <a href="#"><img src="images/Long Room-Old Library/9.jpg" alt="Exhibition Entry" /></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <address>
+        <strong>Trinity College Dublin, The University of Dublin</strong><br />
+        College Green, Dublin 2, Ireland<br />
+        T: +353 1 896 1000
+      </address>
+      <nav class="footer-links">
+        <a href="#">Feedback Form</a>
+        <a href="https://www.tcd.ie">Main TCD page</a>
+      </nav>
+    </footer>
+
+    <div id="accessibilityModal" class="modal">
+      <div class="modal-content">
+        <div class="lines">
+          <button id="closeModal"><img src="images/back-arrow.png" alt="Back" /></button>
+          <h2>Accessibility Adjustments</h2>
+        </div>
+        <div class="lines">
+          <p>Brightness:</p>
+          <input type="range" min="0" max="100" />
+        </div>
+        <div class="lines">
+          <p>Contrast:</p>
+          <button class="ac-buttons">Light</button>
+          <button class="ac-buttons">High</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/artsbuilding-accessibility.js"></script>
+  </body>
+</html>

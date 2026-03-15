@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luce Atrium | Trinity College Dublin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=Source+Sans+Pro:wght@400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="./images/tcd3.png" />
+    <link rel="stylesheet" href="css/styleSub.css" />
+  </head>
+  <body>
+    <header class="site-header" role="banner">
+      <a href="index.html" class="header-brand" aria-label="Home">
+        <img src="images/TCDLOGO.png" alt="TCD logo" width="55" height="55" class="header-brand-logo" />
+        <div class="header-brand-text">
+          <strong>Trinity College Dublin</strong>
+          <span>Coláiste na Tríonóide, Baile Átha Cliath</span>
+          <span>The University of Dublin</span>
+        </div>
+      </a>
+
+      <div class="header-nav" style="display:flex; align-items:center; gap:12px;">
+        <a href="catalogue.html" class="header-nav-link">
+          A-Z <span class="nav-arrow" aria-hidden="true">&#9654;</span>
+        </a>
+        <button id="accessibilityBtn" class="icon-btn">
+          <img src="images/accessibility.png" alt="Accessibility" width="28" height="28">
+        </button>
+      </div>
+    </header>
+
+    <section class="intro">
+      <div class="image-section">
+        <a href="#"><img src="images/Hamilton (3).jpg" alt="Hamilton Building Exterior" /></a>
+        <a href="#"><img src="images/Hamilton (1).jpg" alt="Luce Atrium Main Hallway" /></a>
+      </div>
+
+      <div class="title-section">
+        <h1>Luce Atrium</h1>
+
+        <div class="info-card">
+          <p><strong>Departments:</strong> Computer Science, Maths, and Physics</p>
+          <p><strong>Hours:</strong> Mon-Fri 08:00 - 22:00 | Sat 09:00 - 13:00</p>
+          <p><strong>Contact:</strong> Hamilton Building Reception</p>
+        </div>
+      </div>
+    </section>
+
+    <main class="container">
+      <section class="card">
+        <h2>General Information</h2>
+        <p>The Luce Atrium is the buzzing social and academic heart of the Hamilton Building. It serves as a major thoroughfare connecting various science departments and provides students with a bright, open space for meeting and informal study.</p>
+      </section>
+
+      <section class="card">
+        <h2>Accessibility Highlights</h2>
+        <p>The atrium is fully accessible with level flooring throughout. Multiple automated doors provide entry from the East End of campus, and elevators are available to reach the upper-floor laboratories and offices.</p>
+      </section>
+
+      <section class="card">
+        <h2>Student Hub Facilities</h2>
+        <p>You’ll find plenty of student lockers, several vending machines, and comfortable social seating areas. It is also the main access point for the MacNeill, Synge, and Joly lecture theatres.</p>
+      </section>
+
+      <section id="table-card" class="card">
+        <h2>Major Lecture Theatres</h2>
+        <div class="table-wrapper">
+          <table>
+            <tr>
+              <th>Room Code</th>
+              <th>Venue Name</th>
+              <th>Floor</th>
+            </tr>
+            <tr>
+              <td>HAM.MN</td>
+              <td>MacNeill Theatre</td>
+              <td>Ground Floor</td>
+            </tr>
+            <tr>
+              <td>HAM.SY</td>
+              <td>Synge Theatre</td>
+              <td>Ground Floor</td>
+            </tr>
+            <tr>
+              <td>HAM.JO</td>
+              <td>Joly Theatre</td>
+              <td>Ground Floor</td>
+            </tr>
+            <tr>
+              <td>HAM.SS</td>
+              <td>Salmon Theatre</td>
+              <td>1st Floor</td>
+            </tr>
+          </table>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>External Links</h2>
+        <a href="https://www.tcd.ie/physics/contact/directions/" target="_blank">Finding the Hamilton Building</a>
+      </section>
+
+      <section class="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-grid">
+          <a href="#"><img src="images/Hamilton (7).jpg" alt="Student Lockers" /></a>
+          <a href="#"><img src="images/Hamilton (21).jpg" alt="Social Seating Area" /></a>
+          <a href="#"><img src="images/Hamilton (2).jpg" alt="Hallway Perspective" /></a>
+          <a href="#"><img src="images/Hamilton (11).jpg" alt="Entrance Doors" /></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <address>
+        <strong>Trinity College Dublin, The University of Dublin</strong><br />
+        College Green, Dublin 2, Ireland<br />
+        T: +353 1 896 1000
+      </address>
+      <nav class="footer-links">
+        <a href="#">Feedback Form</a>
+        <a href="https://www.tcd.ie">Main TCD page</a>
+      </nav>
+    </footer>
+
+    <div id="accessibilityModal" class="modal">
+      <div class="modal-content">
+        <div class="lines">
+          <button id="closeModal"><img src="images/back-arrow.png" alt="Back" /></button>
+          <h2>Accessibility Adjustments</h2>
+        </div>
+        <div class="lines">
+          <p>Contrast Adjustment:</p>
+          <button class="ac-buttons">High Contrast</button>
+        </div>
+      </div>
+    </div>
+    <script src="js/artsbuilding-accessibility.js"></script>
+  </body>
+</html>
