@@ -13,7 +13,6 @@ Leaflet map fills entire area*/
   display: flex;
   height: 100vh;
   padding-top: var(--header-height);
-  overflow: hidden;
 }
 
 /* Sidebar */
@@ -25,19 +24,31 @@ Leaflet map fills entire area*/
   background-color: var(--parchment-white);
   border-right: 1px solid var(--border-colour);
   height: calc(100vh - var(--header-height));
-  overflow: hidden;
+  overflow: visible;
   position: relative;
   z-index: 500;
+  transition: transform var(--transition-slow), margin-left var(--transition-slow);
+  transition: transform var(--transition-slow) ease;
+  overflow: visible !important;
+}
+
+.sidebar-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.sidebar-search {
+  overflow: visible;
 }
 
 /* Sidebar toggle button (collapse/expand on mobile) - doesn`t work need to fix----------------*/
 .sidebar-toggle {
-  display: none; /* visible on small screens */
   position: absolute;
   right: -36px;
   top: 50%;
   transform: translateY(-50%);
-  z-index: 600;
+  z-index: 1100;
   width: 36px;
   height: 56px;
   background: var(--parchment-white);
@@ -49,13 +60,40 @@ Leaflet map fills entire area*/
   align-items: center;
   justify-content: center;
   color: var(--oxford-blue);
-  font-size: 18px;
+  font-size: 22px;
   box-shadow: 2px 0 8px rgba(0,0,0,0.08);
   transition: background-color var(--transition-fast);
 }
 
 .sidebar-toggle:hover {
   background-color: var(--parchment-dark);
+}
+
+.sidebar-toggle-arrow {
+  display: inline-block;
+  transition: transform var(--transition-base);
+  line-height: 1;
+}
+
+.sidebar.collapsed {
+  transform: translateX(-100%);
+}
+
+.sidebar.collapsed .sidebar-toggle {
+  position: fixed;
+  left: 0;        /* sticks to the very left of the browser window */
+  right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  background: var(--oxford-blue);
+  color: var(--white);
+  border-left: 1px solid var(--oxford-blue);
+  z-index: 2000;
+}
+
+.sidebar.collapsed .sidebar-toggle-arrow {
+  transform: rotate(180deg);
 }
 
 /*  Search bar*/
@@ -152,13 +190,6 @@ Leaflet map fills entire area*/
 
 .select-clear-row button:hover {
   opacity: 0.65;
-}
-
-/* Sidebar panels (scrollable area) */
-.sidebar-body {
-  flex: 1;
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 /*Search results List */

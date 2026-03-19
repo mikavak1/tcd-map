@@ -100,7 +100,7 @@ const BUILDINGS = [
     categories: ["academic"],
     coords: [53.3423, -6.2528],
     image: "images/placeholders/placeholder.svg",
-    pageUrl: "#placeholder-tbsi",
+    pageUrl: "biomedical-sciences-institute.html",
   },
   {
     id: "buttery",
@@ -165,7 +165,7 @@ const BUILDINGS = [
     categories: ["student-services"],
     coords: [53.3449, -6.2592],
     image: "images/graduate.memorial.jpg",
-    pageUrl: "#placeholder-gmb",
+    pageUrl: "GraduateMemorial.html",
   },
   /* H */
   {
@@ -196,9 +196,8 @@ const BUILDINGS = [
     categories: ["academic"],
     coords: [53.3418, -6.2538],
     image: "images/placeholders/placeholder.svg",
-    pageUrl: "#placeholder-health-sciences-centre",
+    pageUrl: "health-sciences-centre.html",
   },
- 
   /* J */
   {
     id: "james-ussher-library",
@@ -219,7 +218,7 @@ const BUILDINGS = [
     categories: ["facilities"],
     coords: [53.3428, -6.2572],
     image: "images/placeholders/placeholder.svg",
-    pageUrl: "#placeholder-kinsella-hall",
+    pageUrl: "kinsella-hall.html",
   },
   /* L */
   {
@@ -253,16 +252,6 @@ const BUILDINGS = [
     pageUrl: "#placeholder-luce-hall",
   },
   /* M */
-  {
-    id: "microbiology-building",
-    name: "Microbiology Building",
-    shortDesc: "Research and teaching facility for the School of Microbiology.",
-    hours: "Mon-Fri 08:00-18:00",
-    categories: ["academic"],
-    coords: [53.3450, -6.2507],
-    image: "images/placeholders/placeholder.svg",
-    pageUrl: "#placeholder-microbiology-building",
-  },
   {
     id: "museum-building",
     name: "Museum Building",
@@ -396,16 +385,6 @@ const BUILDINGS = [
     coords: [53.3428, -6.2534],
     image: "images/placeholders/placeholder.svg",
     pageUrl: "#placeholder-science-gallery",
-  },
-  {
-    id: "sniam",
-    name: "SNIAM (School of Natural Sciences)",
-    shortDesc: "Facility supporting natural sciences teaching laboratories and research programmes.",
-    hours: "Mon-Fri 08:00-18:00",
-    categories: ["academic"],
-    coords: [53.3456, -6.2506],
-    image: "images/placeholders/placeholder.svg",
-    pageUrl: "#placeholder-sniam",
   },
   {
     id: "sports-centre",

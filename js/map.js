@@ -460,9 +460,33 @@ document.addEventListener ("DOMContentLoaded", function () {
 
   document.getElementById("btn-select-all").addEventListener("click", selectAll);
   document.getElementById("btn-clear").addEventListener("click", clearAll);
-  document.getElementById("btn-back").addEventListener("click", closeCategoryDetail);
+ document.getElementById("btn-back").addEventListener("click", closeCategoryDetail);
   document.getElementById("btn-back-saved").addEventListener("click", function () {
     toggleSavedPanel();
   });
 
+/* SIDEBAR TOGGLE LOGIC */
+  var sidebarToggle = document.getElementById("sidebar-toggle");
+  var sidebar = document.getElementById("sidebar");
+  
+  sidebarToggle.addEventListener("click", function () {
+    var isCollapsed = sidebar.classList.toggle("collapsed");
+    
+    // 1. Update Accessibility attributes
+    sidebarToggle.setAttribute("aria-label", isCollapsed ? "Show sidebar" : "Hide sidebar");
+    sidebarToggle.setAttribute("aria-expanded", !isCollapsed);
+    
+    // 2. Update the arrow icon text for visual clarity when collapsed
+    var arrow = sidebarToggle.querySelector(".sidebar-toggle-arrow");
+    if (isCollapsed) {
+      arrow.innerHTML = "&#8250;"; // Right arrow ›
+    } else {
+      arrow.innerHTML = "&#8249;"; // Left arrow ‹
+    }
+
+    // 3. IMPORTANT: Tell the map the container size changed so it redraws correctly
+    setTimeout(function () { 
+      map.invalidateSize({ animate: true }); 
+    }, 420);
+  });
 }); /* end DOMContentLoaded */
