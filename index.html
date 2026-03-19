@@ -36,9 +36,6 @@
 
   <!-- SIDEBAR-->
 <aside id="sidebar" class="sidebar" aria-label="Building categories and search">
-    <button id="sidebar-toggle" class="sidebar-toggle" aria-label="Hide sidebar" aria-expanded="true">
-      <span class="sidebar-toggle-arrow">&#8249;</span>
-    </button>
 
     <!--Search +  bookmark -->
     <div class="sidebar-search">
@@ -144,7 +141,12 @@
 
   </aside><!--sidebar -->
 
-  <!--MAP -->
+<!--MAP -->
+    <!-- Sidebar toggle to exapnd collapse the side tab-->
+  <button id="sidebar-toggle" class="sidebar-toggle-fixed" aria-label="Toggle sidebar">
+    <span id="sidebar-toggle-arrow">&#8249;</span>
+  </button>
+
   <main id="map-area" class="map-area">
     <div id="map" aria-label="Interactive campus map" role="application" aria-describedby="map-description"> </div>
     <p id="map-description" class="sr-only">

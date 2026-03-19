@@ -42,60 +42,6 @@ Leaflet map fills entire area*/
   overflow: visible;
 }
 
-/* Sidebar toggle button (collapse/expand on mobile) - doesn`t work need to fix----------------*/
-.sidebar-toggle {
-  position: absolute;
-  right: -36px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1100;
-  width: 36px;
-  height: 56px;
-  background: var(--parchment-white);
-  border: 1px solid var(--border-colour);
-  border-left: none;
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--oxford-blue);
-  font-size: 22px;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.08);
-  transition: background-color var(--transition-fast);
-}
-
-.sidebar-toggle:hover {
-  background-color: var(--parchment-dark);
-}
-
-.sidebar-toggle-arrow {
-  display: inline-block;
-  transition: transform var(--transition-base);
-  line-height: 1;
-}
-
-.sidebar.collapsed {
-  transform: translateX(-100%);
-}
-
-.sidebar.collapsed .sidebar-toggle {
-  position: fixed;
-  left: 0;        /* sticks to the very left of the browser window */
-  right: auto;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 0 var(--radius-md) var(--radius-md) 0;
-  background: var(--oxford-blue);
-  color: var(--white);
-  border-left: 1px solid var(--oxford-blue);
-  z-index: 2000;
-}
-
-.sidebar.collapsed .sidebar-toggle-arrow {
-  transform: rotate(180deg);
-}
-
 /*  Search bar*/
 .sidebar-search {
   padding: 16px 16px 10px;
@@ -694,4 +640,43 @@ Leaflet map fills entire area*/
   color: var(--oxford-blue);
 }
 
+/* toggle to collapse/expand sidebar */
+/* button itself */
+.sidebar-toggle-fixed {
+  position: fixed;
+  left: var(--sidebar-width);
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2000;
+  width: 36px;
+  height: 56px;
+  background: var(--parchment-white);
+  border: 1px solid var(--border-colour);
+  border-left: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--oxford-blue);
+  font-size: 22px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.08);
+  transition: left var(--transition-slow), background-color var(--transition-fast);
+}
+
+.sidebar-toggle-fixed:hover {
+  background-color: var(--parchment-dark);
+}
+
+.sidebar-toggle-fixed.collapsed {
+  left: 0;
+  background: var(--oxford-blue);
+  color: var(--white);
+  border-color: var(--oxford-blue);
+}
+/* collapse/expand sidebar(tab)*/
+.sidebar.collapsed {
+  transform: translateX(-100%);
+  margin-left: calc(-1 * var(--sidebar-width));
+}
 
