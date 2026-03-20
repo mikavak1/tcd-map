@@ -27,7 +27,7 @@ html, body {
 /* graphics*/
 .illustration-wrap {
   position: relative;
-  width: min(300px, 72vw);
+  width: min(250px, 72vw);
   margin-bottom: -14px;
   opacity: 0;
   transform: translateY(-20px);
