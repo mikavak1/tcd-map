@@ -1,6 +1,3 @@
-/* -------------------------------------------------------------------------- */
-/* YOUR ORIGINAL SUBPAGE CSS STARTS HERE */
-/* -------------------------------------------------------------------------- */
 
 * {
   margin: 0;
@@ -224,9 +221,6 @@ table tr:last-child td {
   margin-top: 0;
 }
 
-/* -------------------------------------------------------------------------- */
-/* YOUR ORIGINAL SUBPAGE CSS ENDS HERE */
-/* -------------------------------------------------------------------------- */
 
 /* Accessibility mode (toggled by artsbuilding-accessibility.js) */
 body.accessibility-mode {

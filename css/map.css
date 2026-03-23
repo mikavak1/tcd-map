@@ -680,3 +680,35 @@ Leaflet map fills entire area*/
   margin-left: calc(-1 * var(--sidebar-width));
 }
 
+/* toggle visibility for mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    height: calc(100vh - var(--header-height));
+    transform: translateX(-100%);
+    z-index: 900;
+    width: 85vw;
+    max-width: 360px;
+    margin-left: 0 !important;
+  }
+
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+
+.sidebar-toggle-fixed {
+    left: 0;
+    background: var(--oxford-blue);
+    color: var(--white);
+    border-color: var(--parchment-dark);
+  }
+
+  .sidebar-toggle-fixed.mobile-open {
+    left: min(85vw, 360px);
+    background: var(--parchment-white);
+    color: var(--oxford-blue);
+    border-color: var(--parchment-dark);
+  }
+}

@@ -138,7 +138,6 @@ function renderBuildingList() {
 }
 
 /*ALPHABET BAR */
-
 /**Build the alphabet navigation bar.*/
 function buildAlphaBar() {
   const bar = document.getElementById("alpha-bar");
@@ -197,7 +196,6 @@ function scrollToLetter(letter) {
 }
 
 /*FILTER PANEL */
-
 function renderFilterPanel() {
   const body = document.getElementById("filter-panel-body");
   body.innerHTML = `
@@ -236,7 +234,7 @@ function renderFilterPanel() {
     body.appendChild(item);
   });
 
-  /* Re-wire select all / clear after re-render */
+  /* Rewire select all/ clear after re-render */
   document.getElementById("filter-select-all").addEventListener("click", () => {
     Object.keys(CATEGORIES).forEach((k) => activeFilters.add(k));
     renderFilterPanel();
@@ -258,7 +256,6 @@ function checkmarkSVG() {
 }
 
 /* SAVED PANEL*/
-
 function renderSavedPanel() {
   const body = document.getElementById("saved-panel-body");
   body.innerHTML = "";
@@ -309,7 +306,6 @@ function renderSavedPanel() {
 }
 
 /* PANEL OPEN/CLOSE HELPERS*/
-
 function openPanel(panelId) {
   document.getElementById("panel-overlay").classList.add("visible");
   document.getElementById(panelId).classList.add("visible");
@@ -324,8 +320,7 @@ function closeAllPanels() {
   });
 }
 
-/*  STICKY HEADER SCROLL EFFECT*/
-
+/* STICKY HEADER SCROLL EFFECT*/
 function handleScroll() {
   const controls = document.querySelector(".catalogue-controls");
   if (window.scrollY > 10) {
@@ -335,8 +330,7 @@ function handleScroll() {
   }
 }
 
-/* SAVED CHANGE EVENT — refresh bookmark icons in list */
-
+/* SAVED CHANGE EVENT- refresh bookmark icons in list */
 document.addEventListener("savedChange", (e) => {
   const { id, saved } = e.detail;
   const btn = document.querySelector(`.building-entry-bookmark[data-id="${id}"]`);
@@ -358,7 +352,6 @@ document.addEventListener("savedChange", (e) => {
 });
 
 /* DOM WIRING */
-
 document.addEventListener("DOMContentLoaded", () => {
   buildAlphaBar();
   renderBuildingList();

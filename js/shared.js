@@ -61,7 +61,6 @@ function removeSaved(id) {
 }
 
 /* Category helpers  */
-
 /**Get the first (primary) category object for a building
  @param {object} building
 @returns {object} category config

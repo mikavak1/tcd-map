@@ -333,3 +333,35 @@ body {
   from { opacity: 0; transform: translateX(-20px); }
   to{ opacity: 1; transform: translateX(0); }
 }
+
+
+/*header for mobile */
+@media (max-width: 650px) {
+  .site-header {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .header-brand-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+.header-brand-text strong {
+    font-size: 0.75rem;
+  }
+
+  .header-brand-text span {
+    font-size: 0.6rem;
+  }
+
+  .header-nav-link {
+    font-size: 1rem;
+    padding: 6px 10px;
+    white-space: nowrap;
+  }
+
+  .nav-arrow {
+    font-size: 1.1rem;
+  }
+}
