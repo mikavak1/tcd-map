@@ -1,16 +1,16 @@
 /**TCD Campus Map - Buildings Data
  FOR ADMIN:
  * Each building entry contains:
- *   id - unique slug identifier
- *   name  - display name
- *   shortDesc - brief description for map popup
- *   hours- opening hours (if applicable)
- *   categories  - array of category keys (see CATEGORIES below)
- *   coords- [latitude, longitude] — adjust via https://www.latlong.net/
- *   image - path to building image (replace placeholder when ready)
- *   pageUrl  - link to individual building subpage (add when subpages are built)
+ id- unique slug identifier
+ name- display name
+ shortDesc- brief description for map popup
+ hours- opening hours (if applicable)
+ categories  - array of category keys (see CATEGORIES below)
+ coords- [latitude, longitude] — adjust via https://www.latlong.net/
+image - path to building image (replace placeholder when ready)
+ pageUrl  - link to individual building subpage (add when subpages are built)
  
- * CATEGORIES (keys): academic | student-services | administrative | heritage | facilities | accessibility
+ CATEGORIES: academic | student-services | administrative | heritage | facilities | accessibility
  */
 const CATEGORIES = {
   academic: {

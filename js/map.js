@@ -1,15 +1,13 @@
 /**TCD Campus Map — Interactive Map Logic 
  FOR ADMINS:
- Initialises the Leaflet map, places markers, handles sidebar panels,
- category filtering, search and saved buildings.
+ Initialises the Leaflet map, places markers, handles sidebar panels, category filtering, search and saved buildings.
  
  DEPENDENCIES (loaded before this file in index.html):
- Leaflet CSS + JS (CDN)
-data/buildings.js (BUILDINGS, CATEGORIES)
+ Leaflet CSS + JS (CDN), data/buildings.js (buildings, categories)
  js/shared.js (getSaved, toggleSaved, isSaved, etc.)
  */
 
-/* ALL CODE runs inside DOMContentLoaded so the #map element exists first */
+/* for map element exist first */
 document.addEventListener ("DOMContentLoaded", function () {
 
   "use strict";
@@ -35,7 +33,7 @@ document.addEventListener ("DOMContentLoaded", function () {
 
   L.control.zoom({ position: "topright" }).addTo(map);
 
-  /*STATE -----*/
+  /*STATE ---*/
   var activeCategories = new Set();
   var showingSaved = false;
   var currentCategoryKey =null;
@@ -152,15 +150,9 @@ document.addEventListener ("DOMContentLoaded", function () {
       item.setAttribute("role", "row");
       item.dataset.catKey = key;
       item.innerHTML =
-        '<div class="category-icon" style="background-color:' + cat.colour + '20;">' +
-        '<span style="color:' + cat.colour + ';">' + categoryIconSVG(key, 15) + '</span>' +
-        '</div>' +
-        '<span class="category-label">' + cat.label + '</span>' +
-        '<div class="category-checkbox ' + (isChecked ? 'checked' : '') + '"' +
-        ' role="checkbox" aria-checked="' + isChecked + '" aria-label="Filter by ' + cat.label + '">' +
-        (isChecked ? checkmarkSVG() : '') +
-        '</div>' +
-        '<span class="category-chevron" aria-hidden="true">&#x203A;</span>';
+        '<div class="category-icon" style="background-color:' + cat.colour + '20;">' +'<span style="color:' + cat.colour + ';">' + categoryIconSVG(key, 15) + '</span>' +'</div>' +'<span class="category-label">' + cat.label + '</span>' +
+        '<div class="category-checkbox ' + (isChecked ? 'checked' : '') + '"' + ' role="checkbox" aria-checked="' + isChecked + '" aria-label="Filter by ' + cat.label + '">' +
+        (isChecked ? checkmarkSVG() : '') +'</div>' +'<span class="category-chevron" aria-hidden="true">&#x203A;</span>';
 
       item.querySelector(".category-chevron").addEventListener("click", function (e) {
         e.stopPropagation();
@@ -201,8 +193,7 @@ document.addEventListener ("DOMContentLoaded", function () {
 
     var detail = document.getElementById("panel-category-detail");
     detail.querySelector(".panel-category-title").textContent = cat.label;
-    detail.querySelector(".panel-category-title-icon").innerHTML =
-      '<span style="color:' + cat.colour + ';">' + categoryIconSVG(key, 16) + '</span>';
+    detail.querySelector(".panel-category-title-icon").innerHTML ='<span style="color:' + cat.colour + ';">' + categoryIconSVG(key, 16) + '</span>';
 
     var list = detail.querySelector(".building-list");
     list.innerHTML = "";
@@ -214,13 +205,7 @@ document.addEventListener ("DOMContentLoaded", function () {
       item.setAttribute("role", "button");
       item.setAttribute("tabindex", "0");
       item.setAttribute("aria-label", b.name);
-      item.innerHTML =
-        '<span class="building-list-item-name">' + b.name + '</span>' +
-        '<button class="bookmark-icon ' + (saved ? 'saved' : '') + '" data-id="' + b.id + '"' +
-        ' aria-label="' + (saved ? 'Remove from saved' : 'Save') + ' ' + b.name + '"' +
-        ' aria-pressed="' + saved + '">' +
-        bookmarkSVG(saved, 17) +
-        '</button>';
+      item.innerHTML ='<span class="building-list-item-name">' + b.name + '</span>' + '<button class="bookmark-icon ' + (saved ? 'saved' : '') + '" data-id="' + b.id + '"' + ' aria-label="' + (saved ? 'Remove from saved' : 'Save') + ' ' + b.name + '"' + ' aria-pressed="' + saved + '">' + bookmarkSVG(saved, 17) + '</button>';
 
       item.addEventListener("click", function (e) {
         if (!e.target.closest(".bookmark-icon")) flyToBuilding(b.id);
@@ -273,13 +258,9 @@ document.addEventListener ("DOMContentLoaded", function () {
       item.setAttribute("tabindex", "0");
       item.setAttribute("aria-label", "Go to " + b.name);
       item.innerHTML =
-        '<div class="saved-list-icon" style="background-color:' + cat.colour + '20;">' +
-        '<span style="color:' + cat.colour + ';">' + categoryIconSVG(b.categories[0], 13) + '</span>' +
-        '</div>' +
-        '<span class="saved-list-name">' + b.name + '</span>' +
-        '<button class="btn-delete" data-id="' + b.id + '" aria-label="Remove ' + b.name + ' from saved">' +
-        trashSVG(15) +
-        '</button>';
+        '<div class="saved-list-icon" style="background-color:' + cat.colour + '20;">' + '<span style="color:' + cat.colour + ';">' + categoryIconSVG(b.categories[0], 13) + '</span>' +
+        '</div>' +'<span class="saved-list-name">' + b.name + '</span>' +'<button class="btn-delete" data-id="' + b.id + '" aria-label="Remove ' + b.name + ' from saved">' +
+        trashSVG(15) +'</button>';
       item.addEventListener("click", function (e) {
         if (!e.target.closest(".btn-delete")) flyToBuilding(b.id);
       });
@@ -351,9 +332,7 @@ document.addEventListener ("DOMContentLoaded", function () {
         item.setAttribute("role", "button");
         item.setAttribute("tabindex", "0");
         item.setAttribute("aria-label", "Go to " + b.name);
-        item.innerHTML =
-          '<div class="search-result-dot" style="background-color:' + cat.colour + ';"></div>' +
-          '<span class="search-result-name">' + b.name + '</span>';
+        item.innerHTML ='<div class="search-result-dot" style="background-color:' + cat.colour + ';"></div>' +'<span class="search-result-name">' + b.name + '</span>';
         item.addEventListener("click", function () { clearSearch(); flyToBuilding(b.id); });
         item.addEventListener("keydown", function (e) {
           if (e.key === "Enter") { clearSearch(); flyToBuilding(b.id); }

@@ -102,6 +102,25 @@ body {
   box-shadow: var(--shadow-md);
 }
 
+/* accs button*/
+.header-brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.site-header #accessibilityBtn {
+  width: 44px;
+  height: 44px;
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.site-header #accessibilityBtn img {
+  width: 34px;
+  height: 34px;
+}
+
 .header-brand {
   display: flex;
   align-items: center;

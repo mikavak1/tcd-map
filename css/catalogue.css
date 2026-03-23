@@ -118,11 +118,6 @@
   padding-bottom: 16px;
   overflow-x: auto;
   scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.alpha-bar::-webkit-scrollbar {
-  display: none;
 }
 
 .alpha-btn {

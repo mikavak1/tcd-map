@@ -1,6 +1,5 @@
 /*TCD Campus Map Shared Utilities 
- FOR ADMINS: Shared state (saved buildings) persisted to localStorage,
- and utility functions used across both pages.
+ FOR ADMINS: Shared state (saved buildings) are saved in localStorage and utility functions used across both pages
  DEPENDENCIES: Must be loaded AFTER buildings.js
  */
 

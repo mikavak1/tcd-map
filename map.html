@@ -18,7 +18,8 @@
 <body class ="page-map">
 
   <!--HEADER-->
-  <header class="site-header" role="banner">
+  <header class="site-header">
+    <div class="header-brand-group">
     <a href="map.html" class="header-brand" aria-label="Trinity College Dublin - Campus Map home">
       <img src="images/TCDLOGO.png" alt="TCD logo" width="55" height="55" class="header-brand-logo">
       <div class="header-brand-text">
@@ -28,10 +29,18 @@
       </div>
     </a>
 
+       <!-- Accessibility button -->
+        <button id="accessibilityBtn" class="icon-btn" aria-label="Accessibility options">
+          <img src="images/accessibility.png" alt="Accessibility features" width="28" height="28">
+        </button> 
+      </div>
+
     <nav class="header-nav" aria-label="Site navigation">
       <a href="catalogue.html" class="header-nav-link" aria-label ="Go to A-Z building catalogue"> A-Z <span class="nav-arrow" aria-hidden="true">&#9654;</span>
       </a>
     </nav>
+
+
   </header>
 
   <!-- SIDEBAR-->
@@ -81,7 +90,7 @@
             BACK
           </button>
           <span class="panel-category-title-icon" aria-hidden="true"> </span>
-          <h2 class="panel-category-title"> </h2>
+          <p class="panel-category-title"></p>
         </div>
         <div class="building-list" role="list"> </div>
       </div>
@@ -115,7 +124,7 @@
        <a href="https://www.tcd.ie" target="_blank" rel="noopener">Main TCD page</a>
       </nav>
 
-      <div class="footer-social" aria-label ="Social media links">
+      <div class="footer-social" role="list" aria-label ="Social media links">
         <a href="https://x.com/tcddublin" class ="footer-social-link" aria-label="Trinity College Dublin on X (Twitter)" target="_blank" rel="noopener">
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d ="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.748l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
@@ -162,6 +171,7 @@
 <script src="data/buildings.js"></script>
 <script src="js/shared.js"></script>
 <script src="js/map.js"></script>
+<script src="js/accessibility.js"></script>
 
 
 </body>
