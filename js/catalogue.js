@@ -1,31 +1,28 @@
 /**TCD Campus Map - A-Z Catalogue Logic (catalogue.js)
  * FOR ADMINS:
- Renders the alphabetical building list, handles search,
- filter panel, saved panel and bookmark toggling.
+ Renders the alphabetical building list, handles search, filter panel, saved panel and bookmark toggling.
  
  DEPENDENCIES (loaded before this file):
-data/buildings.js  (BUILDINGS, CATEGORIES)
+data/buildings.js (BUILDINGS, CATEGORIES)
 js/shared.js (getSaved, toggleSaved, isSaved, etc.)
  */
 
 "use strict";
 
-/*  STATE*/
+/* STATE*/
 
-/** Active category filters. Empty = show all. */
+/** Active category filters, empty = show all */
 let activeFilters = new Set();
 
 /** Current search query */
 let searchQuery = "";
 
-/* DERIVED DATA*/
-
-/** Buildings sorted alphabetically. */
+/** Buildings sorted alphabetically */
 const SORTED_BUILDINGS = [...BUILDINGS].sort((a, b) =>
   a.name.localeCompare(b.name)
 );
 
-/** All letters A–Z */
+/** All letters a-z */
 const ALL_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
 /** Letters that have at least one building */
@@ -34,7 +31,6 @@ const LETTERS_WITH_BUILDINGS = new Set(
 );
 
 /* FILTERING */
-
 /**
  * Returns the list of buildings to display given current filters + search.
  * @returns {object[]}
@@ -52,7 +48,6 @@ function filteredBuildings() {
 }
 
 /* RENDER BUILDING LIST */
-
 /**Render grouped alphabetical list of buildings into #building-list*/
 function renderBuildingList() {
   const container = document.getElementById("building-list");
@@ -138,7 +133,6 @@ function renderBuildingList() {
 }
 
 /*ALPHABET BAR */
-
 /**Build the alphabet navigation bar.*/
 function buildAlphaBar() {
   const bar = document.getElementById("alpha-bar");
@@ -189,7 +183,7 @@ function updateAlphaBar(presentLetters) {
 function scrollToLetter(letter) {
   const section = document.getElementById(`section-${letter}`);
   if (!section) return;
-  /* Account for sticky header height */
+  /* sticky header height */
   const offset = document.querySelector(".catalogue-controls").offsetHeight +
     parseInt(getComputedStyle(document.documentElement).getPropertyValue("--header-height")) + 8;
   const top = section.getBoundingClientRect().top + window.scrollY - offset;
@@ -197,7 +191,6 @@ function scrollToLetter(letter) {
 }
 
 /*FILTER PANEL */
-
 function renderFilterPanel() {
   const body = document.getElementById("filter-panel-body");
   body.innerHTML = `
@@ -236,7 +229,7 @@ function renderFilterPanel() {
     body.appendChild(item);
   });
 
-  /* Re-wire select all / clear after re-render */
+  /* Rewire select all/ clear after re-render */
   document.getElementById("filter-select-all").addEventListener("click", () => {
     Object.keys(CATEGORIES).forEach((k) => activeFilters.add(k));
     renderFilterPanel();
@@ -258,7 +251,6 @@ function checkmarkSVG() {
 }
 
 /* SAVED PANEL*/
-
 function renderSavedPanel() {
   const body = document.getElementById("saved-panel-body");
   body.innerHTML = "";
@@ -309,7 +301,6 @@ function renderSavedPanel() {
 }
 
 /* PANEL OPEN/CLOSE HELPERS*/
-
 function openPanel(panelId) {
   document.getElementById("panel-overlay").classList.add("visible");
   document.getElementById(panelId).classList.add("visible");
@@ -324,8 +315,7 @@ function closeAllPanels() {
   });
 }
 
-/*  STICKY HEADER SCROLL EFFECT*/
-
+/* STICKY HEADER SCROLL EFFECT*/
 function handleScroll() {
   const controls = document.querySelector(".catalogue-controls");
   if (window.scrollY > 10) {
@@ -335,8 +325,7 @@ function handleScroll() {
   }
 }
 
-/* SAVED CHANGE EVENT — refresh bookmark icons in list */
-
+/* SAVED CHANGE EVENT- refresh bookmark icons in list */
 document.addEventListener("savedChange", (e) => {
   const { id, saved } = e.detail;
   const btn = document.querySelector(`.building-entry-bookmark[data-id="${id}"]`);
@@ -358,13 +347,12 @@ document.addEventListener("savedChange", (e) => {
 });
 
 /* DOM WIRING */
-
 document.addEventListener("DOMContentLoaded", () => {
   buildAlphaBar();
   renderBuildingList();
   renderFilterPanel();
 
-  /* Toolbar: saved badge */
+  /* Toolbar - saved badge */
   if (getSaved().length > 0) {
     document.getElementById("btn-saved-toolbar").classList.add("active");
   }
@@ -392,7 +380,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("btn-saved-close").addEventListener("click", closeAllPanels);
   document.getElementById("panel-overlay").addEventListener("click", closeAllPanels);
 
-  /* Keyboard: close panels on Escape */
+  /* Keyboard, close panels on esc */
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") closeAllPanels();
   });

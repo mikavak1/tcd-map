@@ -1,11 +1,10 @@
-const STORAGE_KEY = "tcd_accessibility_settings_v2";
+const STORAGE_KEY = "tcd_accessibility_settings_v1";
 
 const accessibilityBtn = document.getElementById("accessibilityBtn");
 const modal = document.getElementById("accessibilityModal");
 const closeModalBtn = document.getElementById("closeModal");
-const contrastNormalBtn =
-  document.getElementById("contrastNormalBtn") ||
-  document.getElementById("contrastLightBtn");
+const brightnessRange = document.getElementById("brightnessRange");
+const contrastLightBtn = document.getElementById("contrastLightBtn");
 const contrastHighBtn = document.getElementById("contrastHighBtn");
 const fontSizeToggleBtn = document.getElementById("fontSizeToggleBtn");
 
@@ -13,7 +12,8 @@ const hasCoreUI = accessibilityBtn && modal && closeModalBtn;
 
 if (hasCoreUI) {
   const defaultState = {
-    contrast: "normal",
+    brightness: 100,
+    contrast: "light",
     largeText: false
   };
 
@@ -26,9 +26,9 @@ if (hasCoreUI) {
         return;
       }
       const parsed = JSON.parse(saved);
-      state.contrast = parsed.contrast === "high" ? "high" : "normal";
-      state.largeText =
-        parsed.largeText === true || parsed.fontSize === "large";
+      state.brightness = Number(parsed.brightness) || defaultState.brightness;
+      state.contrast = parsed.contrast === "high" ? "high" : "light";
+      state.largeText = Boolean(parsed.largeText);
     } catch (_error) {
       state = { ...defaultState };
     }
@@ -39,22 +39,26 @@ if (hasCoreUI) {
   }
 
   function applyState() {
-    const isHighContrast = state.contrast === "high";
-    document.body.classList.toggle("contrast-high", isHighContrast);
+    document.documentElement.style.setProperty("--accessibility-brightness", `${state.brightness}%`);
+
+    document.body.classList.toggle("contrast-high", state.contrast === "high");
     document.body.classList.toggle("accessibility-mode", state.largeText);
 
-    if (contrastNormalBtn && contrastHighBtn) {
-      contrastNormalBtn.classList.toggle("is-active", !isHighContrast);
-      contrastHighBtn.classList.toggle("is-active", isHighContrast);
-      contrastNormalBtn.setAttribute("aria-pressed", String(!isHighContrast));
-      contrastHighBtn.setAttribute("aria-pressed", String(isHighContrast));
+    if (brightnessRange) {
+      brightnessRange.value = String(state.brightness);
+    }
+
+    if (contrastLightBtn && contrastHighBtn) {
+      contrastLightBtn.classList.toggle("is-active", state.contrast === "light");
+      contrastHighBtn.classList.toggle("is-active", state.contrast === "high");
+      contrastLightBtn.setAttribute("aria-pressed", String(state.contrast === "light"));
+      contrastHighBtn.setAttribute("aria-pressed", String(state.contrast === "high"));
     }
 
     if (fontSizeToggleBtn) {
-      const label = state.largeText ? "Text Size: Large" : "Text Size: Default";
-      fontSizeToggleBtn.textContent = label;
       fontSizeToggleBtn.classList.toggle("is-active", state.largeText);
       fontSizeToggleBtn.setAttribute("aria-pressed", String(state.largeText));
+      fontSizeToggleBtn.textContent = state.largeText ? "Text Size: Large" : "Text Size: Default";
     }
   }
 
@@ -73,9 +77,20 @@ if (hasCoreUI) {
   accessibilityBtn.addEventListener("click", openModal);
   closeModalBtn.addEventListener("click", closeModal);
 
-  if (contrastNormalBtn) {
-    contrastNormalBtn.addEventListener("click", () => {
-      state.contrast = "normal";
+  if (brightnessRange) {
+    brightnessRange.addEventListener("input", (event) => {
+      const nextValue = Number(event.target.value);
+      if (!Number.isNaN(nextValue)) {
+        state.brightness = nextValue;
+        applyState();
+        saveState();
+      }
+    });
+  }
+
+  if (contrastLightBtn) {
+    contrastLightBtn.addEventListener("click", () => {
+      state.contrast = "light";
       applyState();
       saveState();
     });
