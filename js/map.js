@@ -1,4 +1,4 @@
-/**TCD Campus Map — Interactive Map Logic 
+/**TCD campus map - interactive map 
  FOR ADMINS:
  Initialises the Leaflet map, places markers, handles sidebar panels, category filtering, search and saved buildings.
  
@@ -60,22 +60,11 @@ document.addEventListener ("DOMContentLoaded", function () {
   /* POPUP HTML */
   function buildPopupHTML(building) {
     var saved = isSaved (building.id) ;
-    var imgTag = '<img src="' + building.image + '" alt="Photo of ' + building.name +
-      '" class="popup-img" onerror="this.outerHTML=\'<div class=&quot;popup-img-placeholder&quot;>Image coming soon</div>\'">';
-    return '<div class="popup-card">' +
-      imgTag +
-      '<div class="popup-body">' +
-      '<p class="popup-title">' + building.name + '</p>' +
-      (building.hours ? '<p class="popup-hours">Hours: ' + building.hours + '</p>' : '') +
-      '<p class="popup-desc">' + building.shortDesc + '</p>' +
-      '<div class="popup-footer">' +
-      '<a href="' + building.pageUrl + '" class="popup-more-link" aria-label="More about ' + building.name + '">more&gt;</a>' +
-      '<button class="popup-save-btn '+ (saved ? 'saved' : '') + '" data-id="' + building.id + '"' +
-      ' aria-label="'+ (saved ? 'Remove from saved' : 'Save') + ' ' + building.name + '"' +
-      ' aria-pressed="' + saved + '">' +
-      bookmarkSVG(saved, 17) +
-      '</button>' +
-      '</div></div></div>';
+    var imgTag = '<img src="' + building.image + '" alt="Photo of ' + building.name + '" class="popup-img" onerror="this.outerHTML=\'<div class=&quot;popup-img-placeholder&quot;>Image coming soon</div>\'">';
+    return '<div class="popup-card">' + imgTag + '<div class="popup-body">' + '<p class="popup-title">' + building.name + '</p>' + (building.hours ? '<p class="popup-hours">Hours: ' + building.hours + '</p>' : '') +
+      '<p class="popup-desc">' + building.shortDesc + '</p>' + '<div class="popup-footer">' + '<a href="' + building.pageUrl + '" class="popup-more-link" aria-label="More about ' + building.name + '">more&gt;</a>' +
+      '<button class="popup-save-btn '+ (saved ? 'saved' : '') + '" data-id="' + building.id + '"' + ' aria-label="'+ (saved ? 'Remove from saved' : 'Save') + ' ' + building.name + '"' +
+      ' aria-pressed="' + saved + '">' + bookmarkSVG(saved, 17) + '</button>' +'</div></div></div>';
   }
 
   /*PLACE MARKERS */
@@ -119,23 +108,23 @@ document.addEventListener ("DOMContentLoaded", function () {
       if (!marker) return;
       var visible = true;
       if (showingSaved) {
-        visible = savedIds.indexOf(building.id) !== -1;
+       visible = savedIds.indexOf(building.id) !== -1;
       } else if (activeCategories.size > 0) {
         visible = building.categories.some(function (c) { return activeCategories.has(c); });
       }
       if (visible) {
-        if (!map.hasLayer(marker)) map.addLayer(marker);
+       if (!map.hasLayer(marker)) map.addLayer(marker);
       } else {
-        if (map.hasLayer(marker)) map.removeLayer(marker);
+       if (map.hasLayer(marker)) map.removeLayer(marker);
       }
+
     });
+
   }
 
   /* CATEGORY PANEL */
   function checkmarkSVG() {
-    return '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"' +
-      ' fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
-      '<polyline points="20 6 9 17 4 12"/></svg>';
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"' +' fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +'<polyline points="20 6 9 17 4 12"/></svg>';
   }
 
   function renderCategoryPanel() {
@@ -149,10 +138,8 @@ document.addEventListener ("DOMContentLoaded", function () {
       item.className = "category-item";
       item.setAttribute("role", "row");
       item.dataset.catKey = key;
-      item.innerHTML =
-        '<div class="category-icon" style="background-color:' + cat.colour + '20;">' +'<span style="color:' + cat.colour + ';">' + categoryIconSVG(key, 15) + '</span>' +'</div>' +'<span class="category-label">' + cat.label + '</span>' +
-        '<div class="category-checkbox ' + (isChecked ? 'checked' : '') + '"' + ' role="checkbox" aria-checked="' + isChecked + '" aria-label="Filter by ' + cat.label + '">' +
-        (isChecked ? checkmarkSVG() : '') +'</div>' +'<span class="category-chevron" aria-hidden="true">&#x203A;</span>';
+      item.innerHTML ='<div class="category-icon" style="background-color:' + cat.colour + '20;">' +'<span style="color:' + cat.colour + ';">' + categoryIconSVG(key, 15) + '</span>' +'</div>' +'<span class="category-label">' + cat.label + '</span>' +
+        '<div class="category-checkbox ' + (isChecked ? 'checked' : '') + '"' + ' role="checkbox" aria-checked="' + isChecked + '" aria-label="Filter by ' + cat.label + '">' + (isChecked ? checkmarkSVG() : '') +'</div>' +'<span class="category-chevron" aria-hidden="true">&#x203A;</span>';
 
       item.querySelector(".category-chevron").addEventListener("click", function (e) {
         e.stopPropagation();
@@ -161,7 +148,7 @@ document.addEventListener ("DOMContentLoaded", function () {
 
       item.addEventListener("click", function (e) {
         if (!e.target.closest(".category-chevron")) {
-          toggleCategory(key);
+         toggleCategory(key);
         }
       });
 
@@ -171,9 +158,9 @@ document.addEventListener ("DOMContentLoaded", function () {
 
   function toggleCategory(key) {
     if (activeCategories.has(key)) {
-      activeCategories.delete(key);
+     activeCategories.delete(key);
     } else {
-      activeCategories.add(key);
+     activeCategories.add(key);
     }
     showingSaved = false;
     document.getElementById("btn-saved").classList.remove("has-saved");
@@ -199,12 +186,12 @@ document.addEventListener ("DOMContentLoaded", function () {
     list.innerHTML = "";
 
     buildings.sort(function (a, b) { return a.name.localeCompare(b.name); }).forEach(function (b) {
-      var saved = isSaved(b.id);
-      var item = document.createElement("div");
-      item.className = "building-list-item";
-      item.setAttribute("role", "button");
-      item.setAttribute("tabindex", "0");
-      item.setAttribute("aria-label", b.name);
+     var saved = isSaved(b.id);
+     var item = document.createElement("div");
+     item.className = "building-list-item";
+     item.setAttribute("role", "button");
+     item.setAttribute("tabindex", "0");
+     item.setAttribute("aria-label", b.name);
       item.innerHTML ='<span class="building-list-item-name">' + b.name + '</span>' + '<button class="bookmark-icon ' + (saved ? 'saved' : '') + '" data-id="' + b.id + '"' + ' aria-label="' + (saved ? 'Remove from saved' : 'Save') + ' ' + b.name + '"' + ' aria-pressed="' + saved + '">' + bookmarkSVG(saved, 17) + '</button>';
 
       item.addEventListener("click", function (e) {
@@ -216,12 +203,12 @@ document.addEventListener ("DOMContentLoaded", function () {
 
       item.querySelector(".bookmark-icon").addEventListener("click", function (e) {
         e.stopPropagation();
-        var btn = e.currentTarget;
-        var nowSaved = toggleSaved(b.id);
-        btn.classList.toggle("saved", nowSaved);
-        btn.setAttribute("aria-pressed", nowSaved);
-        btn.innerHTML = bookmarkSVG(nowSaved, 17);
-        btn.setAttribute("aria-label", (nowSaved ? "Remove from saved" : "Save") + " " + b.name);
+       var btn = e.currentTarget;
+       var nowSaved = toggleSaved(b.id);
+       btn.classList.toggle("saved", nowSaved);
+       btn.setAttribute("aria-pressed", nowSaved);
+       btn.innerHTML = bookmarkSVG(nowSaved, 17);
+       btn.setAttribute("aria-label", (nowSaved ? "Remove from saved" : "Save") + " " + b.name);
         dispatchSavedChange(b.id, nowSaved);
       });
       list.appendChild(item);
@@ -257,16 +244,15 @@ document.addEventListener ("DOMContentLoaded", function () {
       item.setAttribute("role", "button");
       item.setAttribute("tabindex", "0");
       item.setAttribute("aria-label", "Go to " + b.name);
-      item.innerHTML =
-        '<div class="saved-list-icon" style="background-color:' + cat.colour + '20;">' + '<span style="color:' + cat.colour + ';">' + categoryIconSVG(b.categories[0], 13) + '</span>' +
-        '</div>' +'<span class="saved-list-name">' + b.name + '</span>' +'<button class="btn-delete" data-id="' + b.id + '" aria-label="Remove ' + b.name + ' from saved">' +
-        trashSVG(15) +'</button>';
+      item.innerHTML ='<div class="saved-list-icon" style="background-color:' + cat.colour + '20;">' + '<span style="color:' + cat.colour + ';">' + categoryIconSVG(b.categories[0], 13) + '</span>' +
+        '</div>' +'<span class="saved-list-name">' + b.name + '</span>' +'<button class="btn-delete" data-id="' + b.id + '" aria-label="Remove ' + b.name + ' from saved">' + trashSVG(15) +'</button>';
       item.addEventListener("click", function (e) {
         if (!e.target.closest(".btn-delete")) flyToBuilding(b.id);
       });
       item.addEventListener("keydown", function (e) {
         if (e.key === "Enter") flyToBuilding(b.id);
       });
+
       item.querySelector(".btn-delete").addEventListener("click", function (e) {
         e.stopPropagation();
         removeSaved(b.id);
@@ -274,8 +260,10 @@ document.addEventListener ("DOMContentLoaded", function () {
         renderSavedPanel();
         updateMarkerVisibility();
       });
+
       list.appendChild(item);
     });
+
   }
 
   function toggleSavedPanel() {
@@ -293,7 +281,7 @@ document.addEventListener ("DOMContentLoaded", function () {
       savedPanel.classList.add("visible");
       document.getElementById("btn-saved").classList.add("has-saved");
       updateMarkerVisibility();
-    } else {
+    }else {
       savedPanel.classList.remove("visible");
       catPanel.style.display = "";
       document.getElementById("btn-saved").classList.remove("has-saved");
@@ -403,11 +391,11 @@ document.addEventListener ("DOMContentLoaded", function () {
   renderCategoryPanel();
 
   if (getSaved().length > 0) {
-    document.getElementById("btn-saved").classList.add("has-saved");
+   document.getElementById("btn-saved").classList.add("has-saved");
   }
 
   document.getElementById("search-input").addEventListener("input", function (e) {
-    handleSearch(e.target.value);
+   handleSearch(e.target.value);
   });
   document.getElementById("search-input").addEventListener("keydown", function (e) {
     if (e.key === "Escape") clearSearch();
@@ -435,12 +423,13 @@ var sidebarToggle = document.getElementById("sidebar-toggle");
       var isOpen = sidebar.classList.toggle("mobile-open");
       sidebarToggle.classList.toggle("mobile-open", isOpen);
       sidebarArrow.innerHTML = isOpen ? "&#8250;" : "&#8249;";
-    } else {
+    }else {
       var isCollapsed = sidebar.classList.toggle("collapsed");
       sidebarToggle.classList.toggle("collapsed", isCollapsed);
       sidebarArrow.innerHTML = isCollapsed ? "&#8250;" : "&#8249;";
       setTimeout(function () { map.invalidateSize(); }, 420);
     }
+    
   });
 
 }); /* end DOMContentLoaded */

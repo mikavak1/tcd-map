@@ -1,6 +1,6 @@
-/**TCD Campus Map - A-Z Catalogue Logic (catalogue.js)
+/**TCD campus map - catalogue 
  * FOR ADMINS:
- Renders the alphabetical building list, handles search, filter panel, saved panel and bookmark toggling.
+ Renders the alphabetical building list, handles search, filter panel, saved panel and bookmark toggling
  
  DEPENDENCIES (loaded before this file):
 data/buildings.js (BUILDINGS, CATEGORIES)
@@ -137,6 +137,7 @@ function buildAlphaBar() {
    btn.className = "alpha-btn";
    btn.textContent = letter;
    btn.setAttribute("aria-label", `Jump to buildings starting with ${letter}`);
+
     if (LETTERS_WITH_BUILDINGS.has(letter)) {
      btn.classList.add("has-buildings");
     } else {
@@ -314,23 +315,23 @@ function closeAllPanels() {
 function handleScroll() {
   const controls = document.querySelector(".catalogue-controls");
   if (window.scrollY > 10) {
-    controls.classList.add("scrolled");
+   controls.classList.add("scrolled");
   } else {
-    controls.classList.remove("scrolled");
+     controls.classList.remove("scrolled");
   }
 
 }
 
 /* SAVED CHANGE EVENT- refresh bookmark icons in list */
 document.addEventListener("savedChange", (e) => {
-  const { id, saved } =  e.detail;
+  const  { id, saved } =  e.detail;
   const btn = document.querySelector(`.building-entry-bookmark[data-id="${id}"]`);
   if (btn) {
     btn.classList.toggle("saved", saved);
     btn.setAttribute("aria-pressed", saved);
     btn.innerHTML = bookmarkSVG(saved, 17);
     btn.setAttribute("aria-label", `${saved ? "Remove from saved" : "Save"} ${
-      BUILDINGS.find((b) => b.id === id)?.name || ""
+       BUILDINGS.find((b) => b.id === id)?.name || ""
     }`);
 
   }
@@ -352,20 +353,20 @@ document.addEventListener ("DOMContentLoaded", () => {
 
   /* Toolbar - saved badge */
   if  (getSaved().length > 0) {
-    document.getElementById("btn-saved-toolbar").classList.add("active");
+   document.getElementById("btn-saved-toolbar").classList.add("active");
   }
 
   /* Search */
   document.getElementById("catalogue-search").addEventListener("input", (e) => {
     searchQuery = e.target.value;
-    renderBuildingList();
+   renderBuildingList();
 
   });
 
   /* Filter panel */
   document.getElementById("btn-filter").addEventListener("click", () => {
     renderFilterPanel ();
-    openPanel ("filter-panel");
+     openPanel ("filter-panel");
   });
 
   /* Saved panel */
@@ -376,21 +377,20 @@ document.addEventListener ("DOMContentLoaded", () => {
   });
 
   /* Close panels */
-  document.getElementById("btn-filter-close").addEventListener("click",  closeAllPanels);
-  document.getElementById("btn-saved-close").addEventListener("click", closeAllPanels);
-  document.getElementById("panel-overlay").addEventListener("click",  closeAllPanels);
+document.getElementById("btn-filter-close").addEventListener("click", closeAllPanels);
+document.getElementById("btn-saved-close").addEventListener("click", closeAllPanels);
+document.getElementById("panel-overlay").addEventListener("click",  closeAllPanels);
 
   /* Keyboard, close panels on esc */
   document.addEventListener("keydown", (e) =>  {
-    if (e.key === "Escape") closeAllPanels();
+    if (e.key === "Escape")  closeAllPanels();
 
   });
 
+
+
   /* Sticky scroll */
   window.addEventListener("scroll", handleScroll, { passive: true });
-
-
-
 
 
 });
