@@ -45,7 +45,7 @@ const CATEGORIES = {
 };
 
 const BUILDINGS = [
-  /* A */
+  /* A --------------*/
   {
     id: "academic-registry",
     name: "Academic Registry",
@@ -54,7 +54,7 @@ const BUILDINGS = [
     categories: ["student-services", "administrative"],
     coords: [53.342944,-6.250911],
     image: "images/academic.registry.jpg",
-    pageUrl: "#placeholder-academic-registry",
+    pageUrl: "AR.html",
   },
 
   {
@@ -88,7 +88,7 @@ const BUILDINGS = [
     categories: ["academic"],
     coords: [53.343670,-6.255982],
     image: "images/bekerley.jpg",
-    pageUrl: "#placeholder-berkeley-library",
+    pageUrl: "berkeleylibrary.html",
   },
 
   {
@@ -110,7 +110,7 @@ const BUILDINGS = [
     categories: ["facilities"],
     coords: [53.344953,-6.257343],
     image: "images/buttery.jpg",
-    pageUrl: "#placeholder-buttery",
+    pageUrl: "Buttery.html",
   },
 
   /* C */
@@ -122,7 +122,7 @@ const BUILDINGS = [
     categories: ["heritage"],
     coords: [53.344397,-6.257293],
     image: "images/campanile.jpg",
-    pageUrl: "#placeholder-campanile",
+    pageUrl: "campanile.html",
   },
 
   {
@@ -133,7 +133,7 @@ const BUILDINGS = [
     categories: ["heritage"],
     coords: [53.344611,-6.258066],
     image: "images/chapel.jpg",
-    pageUrl: "#placeholder-chapel",
+    pageUrl: "chapel.html",
   },
 
   /* D */
@@ -145,7 +145,7 @@ const BUILDINGS = [
     categories: ["student-services"],
     coords: [53.344700,-6.258873],
     image: "images/students.union.jpg",
-    pageUrl: "#placeholder-union",
+    pageUrl: "Studentunion.html",
   },
 
   /* E */
@@ -157,7 +157,7 @@ const BUILDINGS = [
     categories: ["heritage", "administrative"],
     coords: [53.344213,-6.258091],
     image: "images/exam.hall.jpg",
-    pageUrl: "#placeholder-exam-hall",
+    pageUrl: "Examhall.html",
   },
 
   /* H */
@@ -169,7 +169,7 @@ const BUILDINGS = [
     categories: ["academic"],
     coords: [53.343374,-6.250392],
     image: "images/hamilton.jpg",
-    pageUrl: "#placeholder-hamilton-building",
+    pageUrl: "hamilton.html",
   },
 
   {
@@ -180,7 +180,7 @@ const BUILDINGS = [
     categories: ["academic"],
     coords: [53.343374,-6.250392],
     image: "images/hamilton.library.jpg",
-    pageUrl: "#placeholder-hamilton-library",
+    pageUrl: "hamilton-library.html",
   },
 
   {
@@ -191,7 +191,7 @@ const BUILDINGS = [
     categories: ["academic"],
     coords: [53.343781,-6.250843],
     image: "images/lloyd.jpg",
-    pageUrl: "#placeholder-lloyd-institute",
+    pageUrl: "Lloyd.html",
   },
 
   /* M */
@@ -203,10 +203,10 @@ const BUILDINGS = [
     categories: ["academic", "heritage"],
     coords: [53.343939,-6.255243],
     image: "images/museum.building.jpg",
-    pageUrl: "#placeholder-museum-building",
+    pageUrl: "museum-building.html",
   },
 
-  /* O */
+  /* O--------------- */
   {
     id: "old-library",
     name: "Old Library",
@@ -226,7 +226,7 @@ const BUILDINGS = [
     categories: ["academic"],
     coords: [53.343417,-6.250379],
     image: "images/oreilly.jpg",
-    pageUrl: "#placeholder-oreilly-institute",
+    pageUrl: "oreilly-institute.html",
   },
 
 /* P */
@@ -238,7 +238,7 @@ const BUILDINGS = [
     categories: ["facilities"],
     coords: [53.342706,-6.252990],
     image: "images/pav.jpg",
-    pageUrl: "#placeholder-pavilion-bar",
+    pageUrl: "PavilionBar.html",
   },
 
   {
@@ -249,7 +249,7 @@ const BUILDINGS = [
     categories: ["student-services", "accessibility"],
     coords: [53.345046,-6.255467],
     image: "images/printing.jpg",
-    pageUrl: "#placeholder-printing-house-square",
+    pageUrl: "printing-house-square.html",
   },
 
   {
@@ -260,7 +260,7 @@ const BUILDINGS = [
     categories: ["administrative", "heritage"],
     coords: [53.344436,-6.258983],
     image: "images/provosts.jpg",
-    pageUrl: "#placeholder-provosts-house",
+    pageUrl: "provosts-house.html",
   },
 
   /* R */
@@ -272,7 +272,7 @@ const BUILDINGS = [
     categories: ["administrative"],
     coords: [53.344442,-6.258809],
     image: "images/regent.jpg",
-    pageUrl: "#placeholder-regent-house",
+    pageUrl: "regent-house.html",
   },
 
   /* S */
@@ -284,7 +284,7 @@ const BUILDINGS = [
     categories: ["heritage"],
     coords: [53.344673,-6.254339],
     image: "images/samuel.beckett.jpg",
-    pageUrl: "#placeholder-samuel-beckett-theatre",
+    pageUrl: "SamuelBeckett.html",
   },
 
   {
@@ -295,7 +295,7 @@ const BUILDINGS = [
     categories: ["facilities"],
     coords: [53.343939,-6.250348],
     image: "images/sports.jpg",
-    pageUrl: "#placeholder-sports-centre",
+    pageUrl: "SportsCenter.html",
   },
 
   /* T */
@@ -307,9 +307,9 @@ const BUILDINGS = [
     categories: ["academic"],
     coords: [53.344170,-6.251870],
     image: "images/business.school.jpg",
-    pageUrl: "#placeholder-trinity-business-school",
+    pageUrl: "trinity-business-school.html",
   }
-
+  
 ];
 
 /* Make available globally */
