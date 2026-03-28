@@ -514,7 +514,7 @@ Leaflet map fills entire area*/
   margin-top: -1px;
 }
 
-/* Leaflet.js popup style */
+/* Leaflet.js tab popup style */
 .leaflet-popup-content-wrapper {
   border-radius: var(--radius-lg) !important;
   box-shadow: var(--shadow-lg) !important;

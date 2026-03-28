@@ -52,7 +52,7 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>  <!-- magnifyer -->
           </svg>
-          <input type="search" id="search-input" class="search-input" placeholder="Search buildings…" autocomplete="off" aria-label="Search campus buildings" aria-controls="search-results-list">
+          <input type="search" id="search-input" class="search-input" placeholder="Search buildings…" autocomplete="off" aria-label="Search campus buildings">
         </div>
 
         <button id="btn-saved" class="btn-saved" aria-label="View saved buildings" aria-pressed="false">
@@ -153,9 +153,9 @@
   </button>
 
   <main id="map-area" class="map-area">
-    <div id="map" aria-label="Interactive campus map" role="application" aria-describedby="map-description"> </div>
+    <div id="map" aria-label="Interactive campus map" role="application" aria-describedby="map-description"> </div>  <!-- div = empty as Leaflet.js injects the actual interactive map here-->
     <p id="map-description" class="sr-only">
-      Interactive map of Trinity College Dublin campus. Use the sidebar to filter buildings by category or search by name. Click a marker to see building details. <!-- for screen readers-->
+      Interactive map of Trinity College Dublin campus.  Click a marker (pin) to see building details. <!-- for screen readers-->
     </p>
   </main>
 
