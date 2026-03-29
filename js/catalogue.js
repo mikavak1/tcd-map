@@ -11,13 +11,13 @@ js/shared.js (getSaved, toggleSaved, isSaved, etc.)
 
 /* STATE*/
 
-/** Active category filters ---empty shows all */
+/*Active category filters ---empty shows all */
 let activeFilters = new Set();
 
-/** Current search query */
+/*Current search query */
 let searchQuery = "";
 
-/** Buildings sorted alphabetically */
+/* Buildings sorted alphabetically */
 const SORTED_BUILDINGS = [...BUILDINGS].sort((a, b) =>
   a.name.localeCompare(b.name)
 );
@@ -25,26 +25,27 @@ const SORTED_BUILDINGS = [...BUILDINGS].sort((a, b) =>
 /** All letters a-z */
 const ALL_LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 
-/** Letters that have at least one building */
+/** checks out which letters actually have buildings  */
 const LETTERS_WITH_BUILDINGS = new Set(
   SORTED_BUILDINGS.map((b) => b.name[0].toUpperCase())
 );
 
 /* FILTERING */
 /**
- * Return list of buildings to display applieds filters+ search
+  Return list of buildings to display applieds filters+ search
  * @returns {object[]}
  */
-function filteredBuildings() {
-  return SORTED_BUILDINGS.filter((b) => {
+function filteredBuildings() {    
+  return SORTED_BUILDINGS.filter((b) => {    
     const matchesFilter = activeFilters.size === 0 || b.categories.some((c) => activeFilters.has(c));
-    const matchesSearch = searchQuery.length === 0 || b.name.toLowerCase().includes(searchQuery.toLowerCase());
+   const matchesSearch = searchQuery.length === 0 || b.name.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesFilter && matchesSearch;
   });
 }
 
 /* RENDER BUILDING LIST */
-/**Render grouped alphabetical list of buildings into #building-list*/
+/*Takes the filtered buildings, groups them by first letter, 
+generates the entire a-z list dynamically, these are not hardcoded in html*/
 function renderBuildingList() {
   const container = document.getElementById("building-list");
   container.innerHTML = "";
@@ -128,7 +129,7 @@ function renderBuildingList() {
 }
 
 /*ALPHABET BAR */
-/**Build the alphabet navigation bar.*/
+/*Build the alphabet navigation bar, letters with no buildings are dimmed  */
 function buildAlphaBar() {
   const bar = document.getElementById("alpha-bar");
   bar.innerHTML = "";
@@ -151,7 +152,7 @@ function buildAlphaBar() {
   });
 }
 
-/**Update alpha bar to reflect which letters are currently visible.
+/**runs after every search or filter to re dim letters whose buildings are no longer visible
  @param {Set<string>} presentLetters
  */
 function updateAlphaBar(presentLetters) {
@@ -174,7 +175,7 @@ function updateAlphaBar(presentLetters) {
   });
 }
 
-/**Smooth-scroll to a letter section.
+/**Smooth scroll to a letter section
 @param {string} letter
  */
 function scrollToLetter(letter) {
@@ -345,7 +346,7 @@ document.addEventListener("savedChange", (e) => {
 
 });
 
-/* DOM WIRING */
+/* DOM WIRING- user interacts and what happens  */
 document.addEventListener ("DOMContentLoaded", () => {
   buildAlphaBar();
   renderBuildingList();
